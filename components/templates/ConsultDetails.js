@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import DateProvider from "../../providers/DateProvider";
 import BestStudentList from "../module/BestStudentList";
 import ConsultInfoCard from "../module/ConsultInfoCard";
@@ -6,14 +7,17 @@ import styles from "./ConsultDetails.module.css";
 import ReservationBox from "./ReservationBox";
 
 function ConsultDetails() {
+  const myRef = useRef(null);
+
+  const executeScroll = () => myRef.current.scrollIntoView(); //to scroll down to
   return (
     <div className={styles.container}>
       <div className={styles.top}>
         <ConsultInfoCard />
-        <ReservationCard />
+        <ReservationCard executeScroll={executeScroll} />
       </div>
       <BestStudentList />
-      <div className={styles.reserve}>
+      <div ref={myRef} className={styles.reserve}>
         <DateProvider>
           <ReservationBox />
         </DateProvider>

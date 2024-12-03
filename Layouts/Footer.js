@@ -1,13 +1,15 @@
 import styles from "./Footer.module.css";
 import cities from "../constants/cities";
+import Image from "next/image";
+import logo from "../public/logo.svg";
 function Footer() {
   return (
     <>
       <div className={styles.container}>
         <div>
           <h3>شهر های منتورو</h3>
-          {cities.map((city) => (
-            <p>{city.name}</p>
+          {cities.map((city, index) => (
+            <p key={index}>{city.name}</p>
           ))}
         </div>
         <div>
@@ -23,7 +25,7 @@ function Footer() {
         <div className={styles.contactUs}>
           <h3>با ما در ارتباط باشید</h3>
           <p>mentoro.ac@gmail.com</p>
-          <img src="../../public/logo.svg" alt="" />
+          <Image width={100} height={100} src={logo} alt="" />
         </div>
         <div>
           <h3>منتورو را در شبکه های اجتماعی دنبال کنید</h3>

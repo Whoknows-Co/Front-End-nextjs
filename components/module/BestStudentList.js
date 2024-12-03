@@ -7,8 +7,8 @@ function BestStudentList() {
       <div className={styles.background}></div>
       <h1>رتبه های برتر تحت مشاوره</h1>
       <div className={styles.list}>
-        {students.map((student) => (
-          <div className={styles.student}>
+        {students.map((student, index) => (
+          <div key={index} className={styles.student}>
             <img src="../../../public/icons/profile-icon.svg" alt="" />
             <div className={styles.rating}>
               <img src="../../../public/icons/star-rating.svg" alt="" />

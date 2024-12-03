@@ -1,11 +1,20 @@
 import React from "react";
 import styles from "./SearchBar.module.css";
+import banner from "../public/Pattern.svg";
+import Image from "next/image";
+import search from "../public/icons/search.svg";
 function SearchBar() {
   return (
     <div className={styles.container}>
-      <img className={styles.bg} src="../../public/Pattern.svg" alt="" />
+      <Image
+        width={800}
+        height={600}
+        className={styles.bg}
+        src={banner}
+        alt="banner"
+      />
       <div className={styles.search}>
-        <img src="../../public/icons/search.svg" alt="" />
+        <Image width={30} height={30} src={search} alt="search" />
         <input
           type="text"
           name="search"

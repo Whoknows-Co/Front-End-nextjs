@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 function ButtonSB({ txt, imgUrl, bColor }) {
@@ -20,7 +21,7 @@ function ButtonSB({ txt, imgUrl, bColor }) {
   };
   return (
     <button style={styles}>
-      <img src={imgUrl} alt="" />
+      <Image src={imgUrl} alt="" />
       {txt}
     </button>
   );

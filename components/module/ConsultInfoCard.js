@@ -1,41 +1,50 @@
 import React from "react";
 import styles from "./ConsultInfoCard.module.css";
+
+import tripleBulet from "../../public/icons/tirpleBullet.svg";
+import profileIcon from "../../public/icons/profile-icon.svg";
+
+import pinIcon from "../../public/icons/pin-icon.svg";
+import email from "../../public/icons/email.svg";
+import trust from "../../public/icons/trust.svg";
+import Location from "../../public/icons/Location.svg";
+import Location2 from "../../public/icons/Location2.svg";
+
+import instagram from "../../public/icons/instagram-icon.svg";
+import phone from "../../public/icons/phone-icon.svg";
+import linkedin from "../../public/icons/linkedIn-icon.svg";
+import Image from "next/image";
 function ConsultInfoCard() {
   return (
     <div className={styles.container}>
-      <div className={styles.background}></div>
-      <img
-        className={styles.bullets}
-        src="../../../public/icons/tirpleBullet.svg"
-        alt=""
-      />
+      <Image className={styles.bullets} src={tripleBulet} alt="" />
       <div className={styles.header}>
-        <img src="../../../public/icons/profile-icon.svg" alt="" />
+        <Image src={profileIcon} alt="" />
         <div className={styles.details}>
           <h2>پرنیان خالقی</h2>
           <h3>مشاور رشته ریاضی</h3>
           <div>
-            <img src="../../../public/icons/Location.svg" alt="" />
+            <Image width={30} height={30} src={Location} alt="" />
             <p>شیراز</p>
           </div>
           <div>
-            <img src="../../../public/icons/trust.svg" alt="" />
+            <Image width={30} height={30} src={trust} alt="" />
             <p>مشاور موسسه سوتک</p>
           </div>
           <div>
-            <img src="../../../public/icons/email.svg" alt="" />
+            <Image width={30} height={30} src={email} alt="" />
             <p>ParnianKhaleghi94@gmail.com</p>
           </div>
         </div>
       </div>
       <div className={styles.main}>
         <div className={styles.top}>
-          <img src="../../../public/icons/pin-icon.svg" alt="" />
+          <Image width={30} height={30} src={pinIcon} alt="" />
           <h3>درباره ی...</h3>
         </div>
         <div className={styles.bottom}>
           <div>
-            <img src="../../../public/icons/Location2.svg" alt="" />
+            <Image width={30} height={30} src={Location2} alt="" />
             <h3>آدرس:</h3>
           </div>
           <p>شیراز - بلوار مدرس</p>
@@ -44,9 +53,9 @@ function ConsultInfoCard() {
       <div className={styles.footer}>
         <h3>راه های ارتباطی</h3>
         <div>
-          <img src="../../../public/icons/instagram-icon.svg" alt="" />
-          <img src="../../../public/icons/linkedIn-icon.svg" alt="" />
-          <img src="../../../public/icons/phone-icon.svg" alt="" />
+          <Image src={instagram} alt="" />
+          <Image src={linkedin} alt="" />
+          <Image src={phone} alt="" />
         </div>
       </div>
     </div>

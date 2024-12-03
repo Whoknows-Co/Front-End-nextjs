@@ -1,12 +1,19 @@
 import React from "react";
 import styles from "./SideBar.module.css";
 import ButtonSB from "../atom/ButtonSB";
+import profileIcon from "../../public/icons/profile-icon.svg";
+import personOrange from "../../public/icons/personOrange.svg";
+import editPersonBlue from "../../public/icons/editPersonBlue.svg";
+import calenderBlue from "../../public/icons/calenderBlue.svg";
+import EducatoinBlue from "../../public/icons/EducatoinBlue.svg";
+import exit from "../../public/icons/exit-icon.svg";
 
+import Image from "next/image";
 function SideBar() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <img src="../../../public/icons/profile-icon.svg" alt="" />
+        <Image src={profileIcon} alt="" />
         <div>
           <p>پرنیان خالقی</p>
           <p>09179589395</p>
@@ -15,31 +22,31 @@ function SideBar() {
       <div className={styles.navBar}>
         <ButtonSB
           txt={"حساب کاربری"}
-          imgUrl={"../../../public/icons/personOrange.svg"}
+          imgUrl={personOrange}
           bColor={"rgba(251, 133, 0, 0.21)"}
         ></ButtonSB>
 
         <ButtonSB
           txt={"ویرایش اطلاعات حساب"}
-          imgUrl={"../../../public/icons/editPersonBlue.svg"}
+          imgUrl={editPersonBlue}
           bColor={"#F4F2EA"}
         ></ButtonSB>
 
         <ButtonSB
           txt={"نوبت های من"}
-          imgUrl={"../../../public/icons/calenderBlue.svg"}
+          imgUrl={calenderBlue}
           bColor={"#F4F2EA"}
         ></ButtonSB>
 
         <ButtonSB
           txt={"مشاوران من"}
-          imgUrl={"../../../public/icons/EducatoinBlue.svg"}
+          imgUrl={EducatoinBlue}
           bColor={"#F4F2EA"}
         ></ButtonSB>
 
         <ButtonSB
           txt={"خروج از حساب"}
-          imgUrl={"../../../public/icons/exit-icon.svg"}
+          imgUrl={exit}
           bColor={"#F4F2EA"}
         ></ButtonSB>
       </div>

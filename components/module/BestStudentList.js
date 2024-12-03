@@ -1,6 +1,10 @@
 import React from "react";
 import styles from "./BestStudentList.module.css";
 import students from "../../constants/student";
+import profileIcon from "../../public/icons/profile-icon.svg";
+import star from "../../public/icons/star-rating.svg";
+import Image from "next/image";
+
 function BestStudentList() {
   return (
     <div className={styles.container}>
@@ -9,9 +13,9 @@ function BestStudentList() {
       <div className={styles.list}>
         {students.map((student, index) => (
           <div key={index} className={styles.student}>
-            <img src="../../../public/icons/profile-icon.svg" alt="" />
+            <Image src={profileIcon} alt="" />
             <div className={styles.rating}>
-              <img src="../../../public/icons/star-rating.svg" alt="" />
+              <Image src={star} alt="" />
               <h3>رتبه {student.rating}</h3>
             </div>
             <p>{student.name}</p>

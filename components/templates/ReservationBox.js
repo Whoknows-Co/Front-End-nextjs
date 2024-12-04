@@ -24,7 +24,7 @@ function ReservationBox() {
       <div className={styles.container}>
         <div className={styles.timeList}>
           {timeRange === "" ? null : (
-            <h3> بازه زمانی انتخوابی شما : {timeRange}</h3>
+            <h3> بازه زمانی انتخابی شما : {timeRange}</h3>
           )}
           <div className={styles.list}>
             {times.map((time) => (

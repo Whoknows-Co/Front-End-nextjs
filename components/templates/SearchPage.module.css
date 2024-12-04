@@ -1,0 +1,11 @@
+.container {
+  padding: 103px 45px;
+  display: flex;
+  gap: 106px;
+  justify-content: space-between;
+}
+.Cards {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}

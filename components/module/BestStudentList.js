@@ -8,7 +8,6 @@ import Image from "next/image";
 function BestStudentList() {
   return (
     <div className={styles.container}>
-      <div className={styles.background}></div>
       <h1>رتبه های برتر تحت مشاوره</h1>
       <div className={styles.list}>
         {students.map((student, index) => (

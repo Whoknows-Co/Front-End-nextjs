@@ -48,6 +48,7 @@ function ReservationBox() {
     setReserveForm({ ...reserveForm, [name]: value });
   };
   useEffect(() => {
+    if (!calenderValue) return;
     const day = calenderValue.day;
     const month = calenderValue.month.number;
     const year = calenderValue.year;

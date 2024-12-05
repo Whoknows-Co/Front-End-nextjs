@@ -1,0 +1,42 @@
+.allow {
+  width: 100px;
+  height: 50px;
+  background-color: #e9f2f7;
+  border-radius: 10px;
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+.disable {
+  width: 100px;
+  height: 50px;
+  background-color: #e9f2f7;
+  border-radius: 10px;
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 33%;
+  cursor: not-allowed;
+  color: black;
+}
+.selected {
+  width: 100px;
+  height: 50px;
+  background-color: black;
+  border-radius: 10px;
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  opacity: 40%;
+}

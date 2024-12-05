@@ -18,9 +18,9 @@ function ReservationCard({ executeScroll }) {
       <div className={styles.main}>
         <div>
           <Image src={calender} alt="" />
-          <p>انتخاب نوبت مشاوره:</p>
+          <p>اولین نوبت آزاد:</p>
         </div>
-        <select name="" id=""></select>
+        <span>07:00-08:00</span>
       </div>
       <hr className={styles.dashed} />
       <div className={styles.footer}>

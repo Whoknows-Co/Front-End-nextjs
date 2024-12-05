@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import styles from "./TimeBox.module.css";
 function TimeBox({ time, timeHandler }) {
   // const { time, status } = time;
   const allow = {
@@ -52,8 +52,15 @@ function TimeBox({ time, timeHandler }) {
 
   return (
     <div
-      style={
-        isSelected ? selected : time.status === "allowed" ? allow : disable
+      // style={
+      //   isSelected ? selected : time.status === "allowed" ? allow : disable
+      // }
+      className={
+        isSelected
+          ? styles.selected
+          : time.status === "allowed"
+          ? styles.allow
+          : styles.disable
       }
       onClick={() => {
         if (time.status === "disable") return;

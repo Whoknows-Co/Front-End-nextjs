@@ -1,6 +1,20 @@
+@font-face {
+  font-family: "iran-yekan";
+  font-style: normal;
+  src: url("../public/fonts/IRANYEKANREGULAR.TTF");
+}
+:root {
+  --primary-color: #208cb0;
+  --secondary-color: #f9b025;
+  --tertiary-color: #ed6624;
+  --bg-color: #e9f2f7;
+  --text-color: #0d1518;
+  --white-color: #fffbf5;
+}
 body {
   direction: rtl;
-  background-color: #e9f2f7;
+  background-color: var(--bg-color);
+  font-family: "iran-yekan";
 }
 * {
   padding: 0;

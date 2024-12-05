@@ -1,23 +1,5 @@
-/* .container {
-  width: 740px;
-  height: 1108px;
-  border-top-left-radius: 250px;
-  border-top-right-radius: 13px;
-  border-bottom-left-radius: 13px;
-  border-bottom-right-radius: 100px;
-  border-top: 12px rgba(250, 174, 37, 1) solid;
-  border-right: 12px rgba(250, 174, 37, 1) solid;
-  background: linear-gradient(
-    180deg,
-    rgba(88, 180, 209, 0.78) 0%,
-    rgba(45, 92, 107, 0.24) 100%
-  );
-  box-shadow: 20px -20px 50px 0px rgba(0, 0, 0, 0.25);
-} */
-
-/* ConsultInfoCard.module.css */
 .container {
-  width: 740px;
+  width: 600px;
   height: 1108px;
   position: relative;
   border-radius: 15px;

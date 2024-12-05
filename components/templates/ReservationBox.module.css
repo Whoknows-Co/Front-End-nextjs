@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: row;
   position: relative;
+  background-color: var(--white-color);
 }
 
 .timeList {
@@ -60,7 +61,7 @@
   border: none;
   outline: none;
   border-radius: 10px;
-  background-color: #e9f2f7;
+  background-color: var(--bg-color);
 }
 .next,
 .perv {
@@ -68,7 +69,7 @@
   width: 150px;
   height: 40px;
   border: none;
-  background-color: #f9b025;
+  background-color: var(--secondary-color);
   border-radius: 10px;
 }
 .next {
@@ -96,4 +97,13 @@
 }
 .log p {
   font-size: 24px;
+}
+@media (max-width: 850px) {
+  .container {
+    height: auto;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 30px;
+    padding: 60px 0;
+  }
 }

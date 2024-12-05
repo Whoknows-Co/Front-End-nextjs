@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function TimeBox({ time, clickHandler }) {
+function TimeBox({ time, timeHandler }) {
   // const { time, status } = time;
   const allow = {
     width: "100px",
@@ -57,7 +57,7 @@ function TimeBox({ time, clickHandler }) {
       }
       onClick={() => {
         if (time.status === "disable") return;
-        clickHandler(time);
+        timeHandler(time);
         setIsSelected(() => !isSelected);
       }}
     >

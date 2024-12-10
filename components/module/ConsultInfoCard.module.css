@@ -1,11 +1,13 @@
 .container {
   width: 600px;
-  height: 1108px;
+  height: auto;
   position: relative;
   border-radius: 15px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   overflow: hidden;
-  padding: 49px 32px 0 0;
+  padding: 49px 32px 0 32px;
   color: #023047;
   background-color: #fffbf5;
 }
@@ -66,13 +68,25 @@
   flex-direction: column;
   gap: 15px;
   font-size: 24px;
+  margin-bottom: 40px;
 }
 .footer div {
-  width: 326px;
+  align-items: center;
   display: flex;
-  justify-content: space-between;
-  margin-right: 46px;
+  justify-content: space-evenly;
 }
 .footer img {
   width: 40px;
+}
+@media (max-width: 700px) {
+  .container {
+    width: auto;
+  }
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer {
+    /* align-items: center; */
+  }
 }

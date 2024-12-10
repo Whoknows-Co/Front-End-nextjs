@@ -7,7 +7,6 @@
   justify-content: space-between;
   padding: 0 55px;
   position: relative;
-
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .navbar {
@@ -24,15 +23,15 @@
 }
 .navbar p {
   font-size: 24px;
-
-  width: auto;
 }
 .navbar img {
   margin-right: 9px;
   display: inline;
 }
-
-.container button {
+.humber {
+  display: none;
+}
+.login {
   width: 212px;
   height: 63px;
   background-color: #023047;
@@ -42,4 +41,94 @@
   border-radius: 87px;
   font-weight: bold;
   cursor: pointer;
+}
+.login2 {
+  border: none;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+}
+.logo2 {
+  display: none;
+}
+@media (max-width: 1245px) {
+  .navbar {
+    gap: 15px;
+  }
+}
+@media (max-width: 1170px) {
+  .navbar {
+    gap: 5px;
+  }
+  .login {
+    width: 150px;
+    font-size: 24px;
+    height: 50px;
+  }
+}
+@media (max-width: 1075px) {
+  .navbar {
+    display: none;
+  }
+  .login {
+    width: 150px;
+    font-size: 24px;
+    height: 50px;
+  }
+  .humber {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    background-color: #f4f2ea;
+    border: none;
+  }
+  .logo1 {
+    display: none;
+  }
+  .logo2 {
+    display: inline;
+  }
+}
+
+/* sidebar */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #f4f2ea;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  color: var(--black-color);
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  font-size: 36px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }

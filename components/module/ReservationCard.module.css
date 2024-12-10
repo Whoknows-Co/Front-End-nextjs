@@ -2,7 +2,7 @@
   width: 700px;
   height: 380px;
   margin-top: 20px;
-  /* padding: 14px 29px 0 44px; */
+  padding: 14px 29px 0 20px;
   border: 1px black solid;
   color: #023047;
   display: flex;
@@ -27,6 +27,7 @@
   font-size: 24px;
   font-weight: bold;
 }
+
 .main {
   display: flex;
   align-items: center;
@@ -44,10 +45,15 @@
 .main span {
   font-size: 24px;
 }
-.footer button {
+.footer {
+  height: 66px;
+  width: 100%;
   position: relative;
+}
+.footer button {
+  position: absolute;
   bottom: 20px;
-  right: 390px;
+  left: 20px;
   height: 66px;
   width: 282px;
   background-color: var(--secondary-color);
@@ -60,9 +66,28 @@
 }
 .footer button:hover {
   opacity: 0.8;
+  height: 66px;
 }
 .dashed {
   position: relative;
-  top: 10px;
+  bottom: 40px;
   border: 1px dashed var(--tertiary-color);
+}
+@media (max-width: 700px) {
+  .container {
+    width: 320px;
+  }
+  .header p {
+    font-size: 14px;
+  }
+  .header span {
+    font-size: 10px;
+  }
+  .icon {
+    width: 25px;
+    height: 25px;
+  }
+  .footer button {
+    width: 240px;
+  }
 }

@@ -68,8 +68,8 @@ function ReservationBox() {
                 <h3> بازه زمانی انتخابی شما : {timeRange}</h3>
               )}
               <div className={styles.list}>
-                {times.map((time) => (
-                  <TimeBox time={time} timeHandler={timeHandler} />
+                {times.map((time, index) => (
+                  <TimeBox key={index} time={time} timeHandler={timeHandler} />
                 ))}
               </div>
             </div>

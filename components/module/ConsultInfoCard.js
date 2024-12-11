@@ -14,22 +14,22 @@ import instagram from "../../public/icons/instagram-icon.svg";
 import phone from "../../public/icons/phone-icon.svg";
 import linkedin from "../../public/icons/linkedIn-icon.svg";
 import Image from "next/image";
-function ConsultInfoCard() {
+function ConsultInfoCard({ moshaver }) {
   return (
     <div className={styles.container}>
       <Image className={styles.bullets} src={tripleBulet} alt="" />
       <div className={styles.header}>
         <Image src={profileIcon} alt="" />
         <div className={styles.details}>
-          <h2>پرنیان خالقی</h2>
-          <h3>مشاور رشته ریاضی</h3>
+          <h2>{moshaver.moshaver_first_name || ""}</h2>
+          <h3>{moshaver.moshaver_last_name || ""}</h3>
           <div>
             <Image width={30} height={30} src={Location} alt="" />
             <p>شیراز</p>
           </div>
           <div>
             <Image width={30} height={30} src={trust} alt="" />
-            <p>مشاور موسسه سوتک</p>
+            <p>{moshaver.institute_name}</p>
           </div>
           <div>
             <Image width={30} height={30} src={email} alt="" />
@@ -40,14 +40,14 @@ function ConsultInfoCard() {
       <div className={styles.main}>
         <div className={styles.top}>
           <Image width={30} height={30} src={pinIcon} alt="" />
-          <h3>درباره ی...</h3>
+          <h3>{moshaver.description}</h3>
         </div>
         <div className={styles.bottom}>
           <div>
             <Image width={30} height={30} src={Location2} alt="" />
             <h3>آدرس:</h3>
           </div>
-          <p>شیراز - بلوار مدرس</p>
+          <p>{moshaver.address}</p>
         </div>
       </div>
       <div className={styles.footer}>

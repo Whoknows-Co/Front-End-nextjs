@@ -1,13 +1,17 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Footer from "../Layouts/Footer";
 import Header from "../Layouts/Header";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
+  const queryClient = new QueryClient();
   return (
     <>
-      <Header />
-      <Component {...pageProps} />
-      {/* <Footer /> */}
+      <QueryClientProvider client={queryClient}>
+        <Header />
+        <Component {...pageProps} />
+        {/* <Footer /> */}
+      </QueryClientProvider>
     </>
   );
 }

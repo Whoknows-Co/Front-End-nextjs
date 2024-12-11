@@ -1,6 +1,6 @@
 import React from "react";
-import ConsultDetails from "../../components/templates/ConsultDetails";
+import Consultants from "../../components/templates/Consultants";
 function ConsultantPage() {
-  return <ConsultDetails />;
+  return <Consultants />;
 }
 export default ConsultantPage;

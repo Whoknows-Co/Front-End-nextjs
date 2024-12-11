@@ -5,7 +5,8 @@ import profileIcon from "../../public/icons/profile-icon.svg";
 import star from "../../public/icons/star-rating.svg";
 import Image from "next/image";
 
-function BestStudentList() {
+function BestStudentList({ moshaver }) {
+  const students = moshaver.best_students || [];
   return (
     <div className={styles.container}>
       <h1>رتبه های برتر تحت مشاوره</h1>

@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  margin-top: 184px;
+  gap: 245px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 300px;
+}
+.top {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+.reserve {
+  width: 100%;
+  height: 378px;
+  background-color: var(--white-color);
+}
+@media (max-width: 1260px) {
+  .top {
+    flex-direction: column;
+    align-items: center;
+  }
+}

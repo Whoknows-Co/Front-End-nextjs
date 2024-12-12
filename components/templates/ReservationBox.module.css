@@ -64,7 +64,8 @@
   background-color: var(--bg-color);
 }
 .next,
-.perv {
+.perv,
+.submit {
   position: absolute;
   width: 150px;
   height: 40px;
@@ -79,6 +80,11 @@
 .perv {
   right: 10px;
   bottom: 10px;
+}
+.submit {
+  left: 10px;
+  bottom: 10px;
+  background-color: #40bf6a;
 }
 .logContainer {
   padding: 20px 40px;

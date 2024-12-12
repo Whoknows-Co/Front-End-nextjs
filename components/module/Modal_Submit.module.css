@@ -1,0 +1,58 @@
+.container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(51, 51, 51, 0.49);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.modal {
+  height: 200px;
+  width: 430px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  padding: 45px 67px 34px 70px;
+  border-radius: 30px;
+}
+.modal p {
+}
+.textBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.modal button {
+  width: 200px;
+  height: 80px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  border: none;
+  color: var(--white-color);
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+.modal button:hover {
+  opacity: 80%;
+}
+.cross {
+  cursor: pointer;
+  position: relative;
+  right: 410px;
+  bottom: 60px;
+}
+@media (max-width: 700px) {
+  .modal {
+    height: 150px;
+    width: 270px;
+    gap: 14px;
+    padding: 25px 47px 14px 50px;
+  }
+}

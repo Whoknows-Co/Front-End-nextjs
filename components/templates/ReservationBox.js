@@ -11,11 +11,13 @@ import timeCalculator from "../../utils/timeCalculator";
 import Image from "next/image";
 
 import logo from "../../public/logo.svg";
+import Modal_Submit from "../module/Modal_Submit";
 function ReservationBox() {
   const [calenderValue, setCalenderValue] = useState(null);
   const [timeValue, setTimeValue] = useState("");
   const [timeRange, setTimeRange] = useState("");
   const [reserveCardNumb, setReserveCardNumb] = useState(0);
+  const [showModal, setShowModal] = useState(false);
   const [reserveForm, setReserveForm] = useState({
     student_first_name: "",
     student_last_name: "",
@@ -109,6 +111,9 @@ function ReservationBox() {
                 <p>
                   ساعت انتخابی:<span>{reserveForm.time}</span>
                 </p>
+                <p>
+                  پایه تحصیلی:<span>{reserveForm.level}</span>
+                </p>
                 <h2>
                   مشاور:<span>{reserveForm.moshaver_id}</span>
                 </h2>
@@ -125,37 +130,37 @@ function ReservationBox() {
 
               <div className={styles.inputs}>
                 <input
-                  placeholder=""
+                  placeholder="نام"
                   name="student_first_name"
                   value={reserveForm.student_first_name}
                   onChange={changeHandler}
                 />
                 <input
-                  placeholder=""
+                  placeholder="نام خانوادگی"
                   name="student_last_name"
                   value={reserveForm.student_last_name}
                   onChange={changeHandler}
                 />
                 <input
-                  placeholder=""
+                  placeholder="پایه تحصیلی"
                   name="level"
                   value={reserveForm.level}
                   onChange={changeHandler}
                 />
                 <input
-                  placeholder=""
+                  placeholder="رشته تحصیلی"
                   name="subject"
                   value={reserveForm.subject}
                   onChange={changeHandler}
                 />
                 <input
-                  placeholder=""
+                  placeholder="تاریخ تولد"
                   name="date_birth"
                   value={reserveForm.date_birth}
                   onChange={changeHandler}
                 />
                 <input
-                  placeholder=""
+                  placeholder="شماره تماس"
                   name="phone_number"
                   value={reserveForm.phone_number}
                   onChange={changeHandler}
@@ -168,17 +173,21 @@ function ReservationBox() {
           </>
         )}
         {reserveCardNumb === 2 ? (
-          <button className={styles.next}>ثبت</button>
+          <button className={styles.submit} onClick={() => setShowModal(true)}>
+            ثبت
+          </button>
         ) : (
           <button className={styles.next} onClick={nextHandler}>
             مرحله بعد
           </button>
         )}
-
-        <button className={styles.perv} onClick={pervHandler}>
-          مرحله قبل
-        </button>
+        {reserveCardNumb === 0 ? null : (
+          <button className={styles.perv} onClick={pervHandler}>
+            مرحله قبل
+          </button>
+        )}
       </div>
+      {showModal ? <Modal_Submit setShowModal={setShowModal} /> : null}
     </>
   );
 }

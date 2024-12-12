@@ -32,7 +32,7 @@ function SearchResaultCard({ moshaver, id }) {
       </div>
       <div className={styles.footer}>
         <LocationBox address={moshaver.address} />
-        <button onClick={() => router.push(`consult/${id}`)}>
+        <button onClick={() => router.push(`/consult/${id}`)}>
           دریافت نوبت
         </button>
       </div>

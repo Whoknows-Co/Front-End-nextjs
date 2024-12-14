@@ -90,4 +90,7 @@
   .footer {
     /* align-items: center; */
   }
+  .main .top {
+    font-size: 16px;
+  }
 }

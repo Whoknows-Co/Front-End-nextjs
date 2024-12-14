@@ -55,3 +55,51 @@
 .footer button:hover {
   opacity: 80%;
 }
+@media (max-width: 1250px) {
+  .container {
+    width: 700px;
+    height: auto;
+  }
+  .content {
+    max-width: 600px;
+  }
+}
+@media (max-width: 958px) {
+  .container {
+    width: 500px;
+    height: auto;
+  }
+  .content {
+    max-width: 400px;
+  }
+  .content p {
+    font-size: 12px;
+  }
+  .container button {
+    font-size: 10px;
+    height: 20px;
+    width: 100px;
+  }
+}
+@media (max-width: 550px) {
+  .container {
+    width: 300px;
+    height: auto;
+  }
+  .header {
+    flex-direction: column;
+  }
+  .content {
+    display: none;
+    text-align: center;
+    max-width: 300;
+    height: 100px;
+    overflow: hidden;
+  }
+  .content p {
+    font-size: 12px;
+  }
+  .container button {
+    font-size: 12px;
+  }
+}

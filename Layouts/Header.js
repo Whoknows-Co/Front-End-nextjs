@@ -5,11 +5,12 @@ import logo from "../public/logo.svg";
 import arrow from "../public/icons8-dropdown-30 3.svg";
 import profileIcon from "../public/icons/profile-icon.svg";
 import menu from "../public/icons/humberger-menu.svg";
+import { useRouter } from "next/router";
 
 function Header() {
   const [login, setLogin] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
-
+  const router = useRouter();
   return (
     <>
       <div
@@ -19,13 +20,14 @@ function Header() {
         <a className={styles.closebtn} onClick={() => setShowSidebar(false)}>
           &times;
         </a>
-        <a>نوبت دهی مشاوره</a>
+        <a onClick={() => router.push("/consult")}>نوبت دهی مشاوره</a>
         <a>مشاوره درسی آنلاین</a>
         <a>آموزشگاها</a>
         <a>مشاوران</a>
       </div>
       <div className={styles.container}>
         <Image
+          onClick={() => router.push("/")}
           className={styles.logo1}
           width={60}
           height={60}
@@ -33,9 +35,8 @@ function Header() {
           alt="logo"
         />
         <div className={styles.navbar}>
-          <div>
+          <div onClick={() => router.push("/consult")}>
             <p>نوبت دهی مشاوره</p>
-            <Image width={25} height={25} src={arrow} alt="" />
           </div>
           <div>
             <p>مشاوره درسی آنلاین</p>

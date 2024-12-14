@@ -55,17 +55,17 @@ function SearchBar() {
       <div className={styles.ratings}>
         <div>
           <p>
-            <span>۴۴۴+</span>hello
+            <span>۲۰۰+</span>مشاور
           </p>
         </div>
         <div>
           <p>
-            <span>۴۴۴+</span>hello
+            <span>۲۰۰۰+</span>دانش آموز
           </p>
         </div>
         <div>
           <p>
-            <span>۴۴۴+</span>hello
+            <span>۱۰۰+</span>آموزشگاه
           </p>
         </div>
       </div>

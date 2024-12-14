@@ -7,21 +7,14 @@ function TimeBox({ time, timeHandler }) {
     textDecoration: "line-through",
   };
 
-  const [isSelected, setIsSelected] = useState(false);
+  // const [isSelected, setIsSelected] = useState(false);
 
   return (
     <div
-      className={
-        isSelected
-          ? styles.selected
-          : time.status === "allowed"
-          ? styles.allow
-          : styles.disable
-      }
+      className={time.status === "available" ? styles.allow : styles.disable}
       onClick={() => {
         if (time.status === "disable") return;
         timeHandler(time);
-        setIsSelected(() => !isSelected);
       }}
     >
       <p style={time.status === "disable" ? textStyle : null}>{time.time}</p>

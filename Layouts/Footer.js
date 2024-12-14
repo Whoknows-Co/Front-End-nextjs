@@ -6,7 +6,7 @@ function Footer() {
   return (
     <>
       <div className={styles.container}>
-        <div>
+        <div className={styles.status}>
           <h3>شهر های منتورو</h3>
           {cities.map((city, index) => (
             <p key={index}>{city.name}</p>

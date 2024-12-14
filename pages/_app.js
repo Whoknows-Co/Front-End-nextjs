@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
       <QueryClientProvider client={queryClient}>
         <Header />
         <Component {...pageProps} />
-        {/* <Footer /> */}
+        <Footer />
       </QueryClientProvider>
     </>
   );

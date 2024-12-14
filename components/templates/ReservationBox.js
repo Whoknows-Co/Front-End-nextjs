@@ -9,10 +9,12 @@ import TimeBox from "../atom/TimeBox";
 import times from "../../constants/freeTime";
 import timeCalculator from "../../utils/timeCalculator";
 import Image from "next/image";
-
+import api from "../../configs/api";
 import logo from "../../public/logo.svg";
 import Modal_Submit from "../module/Modal_Submit";
-function ReservationBox() {
+import { useMutation, useQuery } from "@tanstack/react-query";
+import timeEditor from "../../utils/timeEditor";
+function ReservationBox({ id, moshaver }) {
   const [calenderValue, setCalenderValue] = useState(null);
   const [timeValue, setTimeValue] = useState("");
   const [timeRange, setTimeRange] = useState("");
@@ -29,10 +31,21 @@ function ReservationBox() {
     date: "",
     time: "",
   });
-  console.log(timeValue);
-  console.log(calenderValue);
+  console.log(reserveForm);
+  const fetchData = async () => {
+    const res = await fetch(
+      "https://mentoroo.liara.run/api/reservation/slots/12/2024-11-26"
+    );
+    const data = await res.json();
+    return data;
+  };
+  const { data, isLoading } = useQuery({
+    queryKey: ["times"],
+    queryFn: fetchData,
+  });
+
   const timeHandler = (value) => {
-    setReserveForm({ ...reserveForm, ["time"]: value.time });
+    setReserveForm({ ...reserveForm, ["time"]: timeEditor(value.time) });
 
     setTimeRange(timeCalculator(value.time));
   };
@@ -57,9 +70,26 @@ function ReservationBox() {
     let date = `${year}/${month}/${day}`;
     setReserveForm({ ...reserveForm, ["date"]: date });
   }, [calenderValue]);
+  const mutationFn = (data) => api.post("/reservation", data);
+
+  const mutation = useMutation({ mutationFn: mutationFn });
   const submitHandler = () => {
-    console.log(reserveForm);
+    mutation.mutate(reserveForm, {
+      onSuccess: (response) => {
+        setShowModal(true);
+        console.log(response);
+      },
+      onError: (error) => alert(error.response.data.message),
+    });
   };
+
+  useEffect(() => {
+    setReserveForm({
+      ...reserveForm,
+      moshaver_id: 12,
+      date: "2024-11-26",
+    });
+  }, [reserveForm.date]);
   return (
     <>
       <div className={styles.container}>
@@ -70,9 +100,15 @@ function ReservationBox() {
                 <h3> بازه زمانی انتخابی شما : {timeRange}</h3>
               )}
               <div className={styles.list}>
-                {times.map((time, index) => (
-                  <TimeBox key={index} time={time} timeHandler={timeHandler} />
-                ))}
+                {isLoading
+                  ? "Loading"
+                  : data.slots.map((time, index) => (
+                      <TimeBox
+                        key={index}
+                        time={time}
+                        timeHandler={timeHandler}
+                      />
+                    ))}
               </div>
             </div>
             <div className={styles.calendar}>
@@ -115,7 +151,10 @@ function ReservationBox() {
                   پایه تحصیلی:<span>{reserveForm.level}</span>
                 </p>
                 <h2>
-                  مشاور:<span>{reserveForm.moshaver_id}</span>
+                  مشاور:
+                  <span>
+                    {moshaver.moshaver_first_name} {moshaver.moshaver_last_name}
+                  </span>
                 </h2>
               </div>
             </div>
@@ -173,7 +212,7 @@ function ReservationBox() {
           </>
         )}
         {reserveCardNumb === 2 ? (
-          <button className={styles.submit} onClick={() => setShowModal(true)}>
+          <button className={styles.submit} onClick={submitHandler}>
             ثبت
           </button>
         ) : (

@@ -30,7 +30,7 @@
   padding-right: 130px;
 }
 .content p {
-  font-size: 24px;
+  font-size: 18px;
 }
 .footer {
   display: flex;
@@ -50,4 +50,8 @@
   font-size: 28px;
   font-weight: bold;
   color: #f4f2ea;
+  cursor: pointer;
+}
+.footer button:hover {
+  opacity: 80%;
 }

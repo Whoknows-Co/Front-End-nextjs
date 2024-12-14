@@ -40,7 +40,7 @@ function ConsultInfoCard({ moshaver }) {
       <div className={styles.main}>
         <div className={styles.top}>
           <Image width={30} height={30} src={pinIcon} alt="" />
-          <h3>{moshaver.description}</h3>
+          <h4>{moshaver.description}</h4>
         </div>
         <div className={styles.bottom}>
           <div>

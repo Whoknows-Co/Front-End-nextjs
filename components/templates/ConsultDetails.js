@@ -35,7 +35,7 @@ function ConsultDetails() {
       <BestStudentList moshaver={data[id]} />
       <div ref={myRef} className={styles.reserve}>
         <DateProvider>
-          <ReservationBox />
+          <ReservationBox id={id} moshaver={data[id]} />
         </DateProvider>
       </div>
     </div>

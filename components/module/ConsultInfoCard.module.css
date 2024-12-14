@@ -42,10 +42,11 @@
 .main .top {
   display: flex;
   align-items: center;
-  font-size: 24px;
+  font-size: 20px;
+  max-width: 460px;
   gap: 7px;
 }
-.bottom {
+.main .top .bottom {
   display: flex;
   flex-direction: column;
 

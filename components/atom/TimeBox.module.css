@@ -28,7 +28,7 @@
   cursor: not-allowed;
   color: black;
 }
-.selected {
+/* .selected {
   width: 100px;
   height: 50px;
   background-color: black;
@@ -41,4 +41,4 @@
   align-items: center;
   color: black;
   opacity: 40%;
-}
+} */

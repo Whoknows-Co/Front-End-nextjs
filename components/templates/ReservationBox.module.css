@@ -72,6 +72,10 @@
   border: none;
   background-color: var(--secondary-color);
   border-radius: 10px;
+  cursor: pointer;
+}
+.container button:hover {
+  opacity: 80%;
 }
 .next {
   left: 10px;

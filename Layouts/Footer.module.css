@@ -47,3 +47,19 @@
   height: 50px;
   padding-top: 8px;
 }
+@media (max-width: 1280px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .describtion {
+    height: auto;
+  }
+  .container div {
+    height: auto;
+  }
+}
+@media (max-width: 1170px) {
+}
+@media (max-width: 1075px) {
+}

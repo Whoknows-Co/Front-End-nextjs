@@ -19,6 +19,7 @@ function SearchPage() {
   });
   console.log(data, isLoading);
   if (isLoading) return "loading";
+  if (!data) return "Something Went Wrong";
   return (
     <div className={styles.container}>
       <FilterSidebar>SearchPage</FilterSidebar>

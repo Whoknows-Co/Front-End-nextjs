@@ -15,6 +15,7 @@ function Consultents() {
   });
   console.log(data, isLoading);
   if (isLoading) return "loading";
+  if (!data) return "Somthing Went Wrong";
   return (
     <div className={styles.container}>
       <FilterSidebar>Consultents</FilterSidebar>

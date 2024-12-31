@@ -1,7 +1,8 @@
 import React from "react";
+import LoginPage from "../../components/templates/LoginPage";
 
 function login() {
-  return <div>login</div>;
+  return <LoginPage />;
 }
 
 export default login;

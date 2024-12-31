@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./RegisterPage.module.css";
 import { useForm } from "react-hook-form";
+import { useRegister } from "../../services/mutations";
+import { useRouter } from "next/navigation";
 function RegisterPage() {
   const submitHandler = (e) => {};
   const {
@@ -9,20 +11,33 @@ function RegisterPage() {
     getValues,
     formState: { errors },
   } = useForm();
+  const { mutate, isPending } = useRegister();
+  const router = useRouter();
   function onSubmit(values) {
-    console.log(values);
+    if (isPending) return;
+
+    mutate(values, {
+      onSuccess: (data) => {
+        console.log(data);
+        router.push("/auth/login");
+      },
+      onError: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   function onError(errors) {
     console.log(errors);
   }
+
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit, onError)}>
         <div>
           <label>نام</label>
           <input
-            {...register("firstName", {
+            {...register("first_name", {
               required: { value: true, message: "نام خود را وارد کنید" },
             })}
           />
@@ -31,7 +46,7 @@ function RegisterPage() {
         <div>
           <label>نام خانوادگی</label>
           <input
-            {...register("lastName", {
+            {...register("last_name", {
               required: {
                 value: true,
                 message: "نام خانوادگی خود را وارد کنید",
@@ -56,7 +71,7 @@ function RegisterPage() {
         <div>
           <label>مبایل</label>
           <input
-            {...register("phone", {
+            {...register("phone_number", {
               required: { value: true, message: "شماره تماس خود را وارد کنید" },
               minLength: { value: 11, message: "شماره تماس نا معتبر است" },
               maxLength: { value: 11, message: "شماره تماس نا معتبر است" },
@@ -76,7 +91,7 @@ function RegisterPage() {
         <div>
           <label>تکرار رمز عبور </label>
           <input
-            {...register("confirmPassword", {
+            {...register("password_confirmation", {
               required: {
                 value: true,
                 message: "تکرار رمز عبور خود را وارد کنید",

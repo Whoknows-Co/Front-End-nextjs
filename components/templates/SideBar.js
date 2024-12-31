@@ -13,10 +13,9 @@ function SideBar() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <Image src={profileIcon} alt="" />
+        <Image src={profileIcon} alt="profile" width={111} height={111} />
         <div>
           <p>پرنیان خالقی</p>
-          <p>09179589395</p>
         </div>
       </div>
       <div className={styles.navBar}>
@@ -29,33 +28,26 @@ function SideBar() {
         <ButtonSB
           txt={"ویرایش اطلاعات حساب"}
           imgUrl={editPersonBlue}
-          bColor={"#F4F2EA"}
+          bColor={"#FFF6E8"}
         ></ButtonSB>
 
         <ButtonSB
-          txt={"نوبت های من"}
+          txt={"مدیریت نوبت ها"}
           imgUrl={calenderBlue}
-          bColor={"#F4F2EA"}
+          bColor={"#FFF6E8"}
         ></ButtonSB>
 
         <ButtonSB
-          txt={"مشاوران من"}
+          txt={"مشاهده رزرو های من"}
           imgUrl={EducatoinBlue}
-          bColor={"#F4F2EA"}
+          bColor={"#FFF6E8"}
         ></ButtonSB>
 
         <ButtonSB
           txt={"خروج از حساب"}
           imgUrl={exit}
-          bColor={"#F4F2EA"}
+          bColor={"#FFF6E8"}
         ></ButtonSB>
-      </div>
-      <div className={styles.footer}>
-        <div className={styles.bBack}></div>
-        <div className={styles.oBack}></div>
-        <p>موجودی کیف پول</p>
-        <span> 0 تومان</span>
-        <button>افزایش موجودی</button>
       </div>
     </div>
   );

@@ -4,11 +4,11 @@ import React from "react";
 function ButtonSB({ txt, imgUrl, bColor }) {
   const styles = {
     backgroundColor: bColor,
-    width: "280px",
+    width: "250px",
     height: "62px",
-    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-    border: "none",
-    borderRadius: "24px",
+    // boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    border: "1px solid",
+    borderRadius: "10px",
     cursor: "pointer",
     display: "flex",
     alignItems: "center",

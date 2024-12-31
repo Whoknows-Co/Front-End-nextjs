@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useContext, useState } from "react";
 import styles from "./Header.module.css";
 import Image from "next/image";
 import logo from "../public/logo.svg";
@@ -6,9 +6,10 @@ import arrow from "../public/icons8-dropdown-30 3.svg";
 import profileIcon from "../public/icons/profile-icon.svg";
 import menu from "../public/icons/humberger-menu.svg";
 import { useRouter } from "next/router";
+import { loginContext } from "../context/LoginContextProvider";
 
 function Header() {
-  const [login, setLogin] = useState(false);
+  const { login } = useContext(loginContext);
   const [showSidebar, setShowSidebar] = useState(false);
   const router = useRouter();
   return (
@@ -67,7 +68,12 @@ function Header() {
             <Image width={50} height={50} src={profileIcon} />
           </button>
         ) : (
-          <button className={styles.login}>ورود/ثبت نام</button>
+          <button
+            className={styles.login}
+            onClick={() => router.push("/auth/register")}
+          >
+            ورود/ثبت نام
+          </button>
         )}
       </div>
     </>

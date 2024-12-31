@@ -1,12 +1,14 @@
 .container {
-  width: 436px;
-  height: 944px;
+  width: fit-content;
+  height: auto;
   color: #023047;
-  padding-right: 32px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
+  padding: 34px 29px 100px 42px;
   gap: 35px;
   margin-top: 17px;
+  background-color: #fffbf5;
 }
 .container img {
   width: 103px;
@@ -20,7 +22,7 @@
 .navBar {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
 }
 .navBar img {
   width: 23px;

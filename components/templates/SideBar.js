@@ -9,13 +9,15 @@ import eye from "../../public/sidebar/eye.svg";
 import exit from "../../public/icons/exit-icon.svg";
 
 import Image from "next/image";
-function SideBar({ selected, setSelected }) {
+function SideBar({ selected, setSelected, data }) {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <Image src={profileIcon} alt="profile" width={111} height={111} />
+        <Image src={profileIcon} alt="profile" width={93} height={93} />
         <div>
-          <p>پرنیان خالقی</p>
+          <p className={styles.profileName}>
+            {data.data.first_name} {data.data.last_name}
+          </p>
         </div>
       </div>
       <div className={styles.navBar}>

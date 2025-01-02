@@ -1,9 +1,33 @@
 import React from "react";
 import styles from "./EditConsultantProfile.module.css";
-function EditConsultantProfile({ data }) {
+import { useForm } from "react-hook-form";
+import { useUpdateConsultantProfile } from "../../services/mutations";
+function EditConsultantProfile({ data, setSelected }) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const { mutate, isPending } = useUpdateConsultantProfile();
+  const submitHandler = (data) => {
+    if (isPending) return;
+    mutate(data, {
+      onSuccess: (data) => {
+        window.location.reload();
+        console.log(data);
+      },
+      onError: (err) => {
+        console.log(err);
+      },
+    });
+  };
+  const cancelHandler = () => {
+    setSelected(1);
+    window.location.reload();
+  };
   return (
     <div className={styles.container}>
-      <form className={styles.info}>
+      <form className={styles.info} onSubmit={handleSubmit(submitHandler)}>
         <p>ویرایش اطلاعات</p>
         <div className={styles.infoContainer}>
           <div className={styles.top}>
@@ -22,24 +46,33 @@ function EditConsultantProfile({ data }) {
               </div>
               <div>
                 <label>شماره تماس</label>
-                <input placeholder={data.profile.display_phone || ""} />
+                <input
+                  placeholder={data.display_phone || 0}
+                  {...register("display_phone")}
+                />
               </div>
               <div>
                 <label>رشته</label>
-                <input placeholder={data.profile.specialty || ""} />
+                <input
+                  placeholder={data.specialty || ""}
+                  {...register("specialty")}
+                />
               </div>
               <div>
                 <label>شهر</label>
-                <input placeholder={data.profile.city || ""} />
+                <input placeholder={data.city || ""} {...register("city")} />
               </div>
               <div>
                 <label>آدرس</label>
-                <input placeholder={data.profile.address || ""} />
+                <input
+                  placeholder={data.address || ""}
+                  {...register("address")}
+                />
               </div>
             </div>
             <div className={styles.left}>
               <label>درباره ی مشاور</label>
-              <textarea placeholder={data.profile.about || ""} />
+              <textarea placeholder={data.about || ""} {...register("about")} />
             </div>
           </div>
           <div className={styles.bottom}>
@@ -52,14 +85,18 @@ function EditConsultantProfile({ data }) {
             </div>
             <div>
               <label>خدمات</label>
-              <input placeholder={data.profile.services || ""} />
+              <input placeholder={data.services || ""} />
               <button>+</button>
             </div>
           </div>
         </div>
         <div className={styles.buttons}>
-          <button className={styles.button1}>انصراف</button>
-          <button className={styles.button2}>دخیره اطلاعات</button>
+          <button className={styles.button1} onClick={cancelHandler}>
+            انصراف
+          </button>
+          <button className={styles.button2} type="submit">
+            دخیره اطلاعات
+          </button>
         </div>
       </form>
       <form className={styles.password}>

@@ -19,5 +19,13 @@ const useLogin = () => {
     });
   return useMutation({ mutationFn });
 };
-
-export { useRegister, useLogin };
+const useUpdateConsultantProfile = () => {
+  const mutationFn = (data) =>
+    api.post("moshaver/complete-profile", data, {
+      headers: {
+        guard: "moshaver",
+      },
+    });
+  return useMutation({ mutationFn });
+};
+export { useRegister, useLogin, useUpdateConsultantProfile };

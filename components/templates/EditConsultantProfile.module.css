@@ -1,0 +1,88 @@
+.container {
+  padding: 48px 78px 94px;
+  background-color: #fffbf5;
+  height: auto;
+  border-radius: 15px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.container input {
+  background-color: #fffbf5;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  outline: none;
+  padding-right: 8px;
+}
+.infoContainer {
+  padding-top: 34px;
+  border-top: 1px solid;
+  display: flex;
+  flex-direction: column;
+}
+.top {
+  display: flex;
+  gap: 16px;
+}
+.left textarea {
+  width: 352px;
+  height: 232px;
+  text-align: top;
+  background-color: #fffbf5;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding-top: 8px;
+  padding-right: 8px;
+  outline: none;
+}
+.right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.right input {
+  width: 150px;
+  height: 40px;
+}
+.container label {
+  display: block;
+}
+.bottom input {
+  width: 130px;
+  height: 40px;
+  margin-left: 16px;
+}
+.button1,
+.button2 {
+  width: 200px;
+  height: 56px;
+  border-radius: 10px;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+.button1 {
+  background-color: #fffbf5;
+  border: 2px #f9b025 solid;
+}
+.button2 {
+  background-color: #f9b025;
+  border: 1px black solid;
+}
+.buttons {
+  position: relative;
+  top: 60px;
+  left: -280px;
+}
+.passwordContainer {
+  border-top: 1px solid;
+  padding-top: 44px;
+  display: flex;
+  gap: 16px;
+}
+.passwordContainer input {
+  height: 40px;
+}

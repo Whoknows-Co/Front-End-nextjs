@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./SideBar.module.css";
 import ButtonSB from "../atom/ButtonSB";
-import profileIcon from "../../public/icons/profile-icon.svg";
-import personOrange from "../../public/icons/personOrange.svg";
-import editPersonBlue from "../../public/icons/editPersonBlue.svg";
-import calenderBlue from "../../public/icons/calenderBlue.svg";
-import EducatoinBlue from "../../public/icons/EducatoinBlue.svg";
+import user from "../../public/sidebar/user.svg";
+import profileIcon from "../../public/sidebar/profile.svg";
+import editPersonBlue from "../../public/sidebar/edit.svg";
+import calenderBlue from "../../public/sidebar/calendar.svg";
+import eye from "../../public/sidebar/eye.svg";
 import exit from "../../public/icons/exit-icon.svg";
 
 import Image from "next/image";
-function SideBar() {
+function SideBar({ selected, setSelected }) {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -21,32 +21,37 @@ function SideBar() {
       <div className={styles.navBar}>
         <ButtonSB
           txt={"حساب کاربری"}
-          imgUrl={personOrange}
-          bColor={"rgba(251, 133, 0, 0.21)"}
+          imgUrl={user}
+          bColor={selected === 1 ? "#FEE9C3" : "#FFF6E8"}
+          fn={() => setSelected(1)}
         ></ButtonSB>
 
         <ButtonSB
           txt={"ویرایش اطلاعات حساب"}
           imgUrl={editPersonBlue}
-          bColor={"#FFF6E8"}
+          bColor={selected === 2 ? "#FEE9C3" : "#FFF6E8"}
+          fn={() => setSelected(2)}
         ></ButtonSB>
 
         <ButtonSB
           txt={"مدیریت نوبت ها"}
           imgUrl={calenderBlue}
-          bColor={"#FFF6E8"}
+          bColor={selected === 3 ? "#FEE9C3" : "#FFF6E8"}
+          fn={() => setSelected(3)}
         ></ButtonSB>
 
         <ButtonSB
           txt={"مشاهده رزرو های من"}
-          imgUrl={EducatoinBlue}
-          bColor={"#FFF6E8"}
+          imgUrl={eye}
+          bColor={selected === 4 ? "#FEE9C3" : "#FFF6E8"}
+          fn={() => setSelected(4)}
         ></ButtonSB>
 
         <ButtonSB
           txt={"خروج از حساب"}
           imgUrl={exit}
-          bColor={"#FFF6E8"}
+          bColor={selected === 5 ? "#FEE9C3" : "#FFF6E8"}
+          fn={() => setSelected(5)}
         ></ButtonSB>
       </div>
     </div>

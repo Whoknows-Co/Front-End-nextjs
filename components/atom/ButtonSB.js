@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-function ButtonSB({ txt, imgUrl, bColor }) {
+function ButtonSB({ txt, imgUrl, bColor, fn }) {
   const styles = {
     backgroundColor: bColor,
     width: "250px",
@@ -20,7 +20,7 @@ function ButtonSB({ txt, imgUrl, bColor }) {
     color: "#023047",
   };
   return (
-    <button style={styles}>
+    <button style={styles} onClick={fn}>
       <Image src={imgUrl} alt="" />
       {txt}
     </button>

@@ -15,4 +15,15 @@ const useGetConsultantProfile = () => {
 
   return useQuery({ queryFn, queryKey });
 };
-export { useGetConsultantProfile };
+
+const useGetConsultantReservedTimes = () => {
+  const queryFn = () =>
+    api.get("moshaver/reserved", {
+      headers: {
+        guard: "moshaver",
+      },
+    });
+  const queryKey = ["consultant-reserved"];
+  return useQuery({ queryFn, queryKey });
+};
+export { useGetConsultantProfile, useGetConsultantReservedTimes };

@@ -1,0 +1,46 @@
+.container {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  border-radius: 15px;
+  margin-right: 50px;
+  flex-direction: column;
+  padding: 36px 76px;
+  gap: 54px;
+  background-color: #fffbf5;
+  position: relative;
+}
+.modal {
+  position: absolute;
+  background-color: #fff6e8;
+  width: fit-content;
+  height: fit-content;
+  padding: 38px 79px 20px 49px;
+  z-index: 10;
+  display: flex;
+  gap: 41px;
+  border: 1px solid;
+  border-radius: 15px;
+  left: 156px;
+  top: 200px;
+  -webkit-box-shadow: 0px 0px 73px -6px rgba(0, 0, 0, 0.32);
+  -moz-box-shadow: 0px 0px 73px -6px rgba(0, 0, 0, 0.32);
+  box-shadow: 0px 0px 73px -6px rgba(0, 0, 0, 0.32);
+}
+.label {
+}
+.label p {
+  color: rgba(0, 0, 0, 0.46);
+  font-weight: bold;
+}
+.answer {
+}
+.answer p {
+  font-weight: bold;
+}
+.cross {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+}

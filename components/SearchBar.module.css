@@ -1,7 +1,7 @@
 .container {
   height: 505px;
   width: 100%;
-  background-color: #e9f2f7;
+  background-color: #d0e7f2;
   /* background-image: url("../../public/Pattern.svg");
   background-repeat: no-repeat;
   background-size: cover; */
@@ -14,13 +14,13 @@
 }
 .search {
   z-index: 2;
-
+  border: 1px solid #696969;
   position: absolute;
   top: 81px;
   height: 55px;
   width: 771px;
-  background-color: #d9d9d9;
-  border-radius: 29px;
+  background-color: #e9f2f7;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   padding-right: 27px;
@@ -29,7 +29,7 @@
   margin-right: 10px;
   border: none;
   outline: none;
-  background-color: #d9d9d9;
+  background-color: #e9f2f7;
   font-size: 20px;
   width: 660px;
 

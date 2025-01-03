@@ -38,8 +38,8 @@ function SearchBar() {
       />
       <div className={styles.search}>
         <Image
-          width={30}
-          height={30}
+          width={54.375}
+          height={50}
           src={search}
           alt="search"
           onClick={searchFilter}

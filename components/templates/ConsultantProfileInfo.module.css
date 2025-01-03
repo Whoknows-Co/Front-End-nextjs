@@ -91,3 +91,8 @@
   margin-bottom: 12px;
   justify-content: space-between;
 }
+.title {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

@@ -1,5 +1,8 @@
 import styles from "./ConsultantProfileInfo.module.css";
 import { useGetConsultantProfile } from "../../services/queries";
+import Image from "next/image";
+import person from "../../public/setTimes/person.svg";
+
 function ConsultantProfileInfo({ data, setSelected }) {
   console.log(data);
 
@@ -7,7 +10,10 @@ function ConsultantProfileInfo({ data, setSelected }) {
     <div className={styles.container}>
       <form className={styles.info}>
         <div className={styles.header}>
-          <p>اطلاعات حساب کاربری</p>
+          <div className={styles.title}>
+            <Image src={person} width={22} height={22} alt="person" />
+            <p>اطلاعات حساب کاربری</p>
+          </div>
           <button onClick={() => setSelected(2)}>ویرایش اطلاعات</button>
         </div>
         <div className={styles.infoContainer}>

@@ -87,3 +87,8 @@
 .passwordContainer input {
   height: 40px;
 }
+.header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

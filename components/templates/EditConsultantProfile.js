@@ -2,6 +2,9 @@ import React from "react";
 import styles from "./EditConsultantProfile.module.css";
 import { useForm } from "react-hook-form";
 import { useUpdateConsultantProfile } from "../../services/mutations";
+import Image from "next/image";
+import pencil from "../../public/setTimes/pencil.svg";
+
 function EditConsultantProfile({ data, setSelected }) {
   const {
     register,
@@ -28,7 +31,10 @@ function EditConsultantProfile({ data, setSelected }) {
   return (
     <div className={styles.container}>
       <form className={styles.info} onSubmit={handleSubmit(submitHandler)}>
-        <p>ویرایش اطلاعات</p>
+        <div className={styles.header}>
+          <Image src={pencil} width={22} height={22} alt="pencil" />
+          <p>ویرایش اطلاعات</p>
+        </div>
         <div className={styles.infoContainer}>
           <div className={styles.top}>
             <div className={styles.right}>
@@ -100,7 +106,10 @@ function EditConsultantProfile({ data, setSelected }) {
         </div>
       </form>
       <form className={styles.password}>
-        <p>ویرایش رمز عبور</p>
+        <div className={styles.header}>
+          <Image src={pencil} width={22} height={22} alt="pencil" />
+          <p>ویرایش رمز عبور</p>
+        </div>
         <div className={styles.passwordContainer}>
           <div>
             <label>رمز عبور جدید</label>

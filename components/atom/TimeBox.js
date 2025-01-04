@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./TimeBox.module.css";
+import timeEditor from "../../utils/timeEditor";
 function TimeBox({ time, timeHandler }) {
   // const { time, status } = time;
 
@@ -13,11 +14,13 @@ function TimeBox({ time, timeHandler }) {
     <div
       className={time.status === "available" ? styles.allow : styles.disable}
       onClick={() => {
-        if (time.status === "disable") return;
+        if (time.status === "unavailable") return;
         timeHandler(time);
       }}
     >
-      <p style={time.status === "disable" ? textStyle : null}>{time.time}</p>
+      <p style={time.status === "unavailable" ? textStyle : null}>
+        {timeEditor(time.start_time)}-{timeEditor(time.end_time)}
+      </p>
     </div>
   );
 }

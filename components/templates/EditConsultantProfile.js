@@ -55,7 +55,7 @@ function EditConsultantProfile({ data, setSelected }) {
               <div>
                 <label>شماره تماس</label>
                 <input
-                  placeholder={data.display_phone || 0}
+                  placeholder={data.display_phone || null}
                   {...register("display_phone")}
                 />
               </div>
@@ -83,20 +83,7 @@ function EditConsultantProfile({ data, setSelected }) {
               <textarea placeholder={data.about || ""} {...register("about")} />
             </div>
           </div>
-          <div className={styles.bottom}>
-            <div>
-              <label>راه های ارتباطی</label>
-              <input placeholder="" />
-              <input placeholder="" />
-              <input placeholder="" />
-              <input placeholder="" />
-            </div>
-            <div>
-              <label>خدمات</label>
-              <input placeholder={data.services || ""} />
-              <button>+</button>
-            </div>
-          </div>
+          <div className={styles.bottom}></div>
         </div>
         <div className={styles.buttons}>
           <button className={styles.button1} onClick={cancelHandler}>
@@ -107,7 +94,7 @@ function EditConsultantProfile({ data, setSelected }) {
           </button>
         </div>
       </form>
-      <form className={styles.password}>
+      {/* <form className={styles.password}>
         <div className={styles.header}>
           <Image src={pencil} width={22} height={22} alt="pencil" />
           <p>ویرایش رمز عبور</p>
@@ -130,7 +117,7 @@ function EditConsultantProfile({ data, setSelected }) {
           <button className={styles.button1}>انصراف</button>
           <button className={styles.button2}>دخیره اطلاعات</button>
         </div>
-      </form>
+      </form> */}
     </div>
   );
 }

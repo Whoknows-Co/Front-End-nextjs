@@ -14,7 +14,7 @@ import logo from "../../public/logo.svg";
 import Modal_Submit from "../module/Modal_Submit";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import timeEditor from "../../utils/timeEditor";
-function ReservationBox({ id, moshaver }) {
+function ReservationBox({ moshaver }) {
   const [calenderValue, setCalenderValue] = useState(null);
   const [timeValue, setTimeValue] = useState("");
   const [timeRange, setTimeRange] = useState("");
@@ -29,12 +29,13 @@ function ReservationBox({ id, moshaver }) {
     phone_number: "",
     moshaver_id: "",
     date: "",
-    time: "",
+    end_time: "",
+    start_time: "",
   });
   console.log(reserveForm);
   const fetchData = async () => {
     const res = await fetch(
-      "https://mentoroo.liara.run/api/reservation/slots/12/2024-11-26"
+      `https://mentoroo.liara.run/api/reservation/slots/14/2025-07-08`
     );
     const data = await res.json();
     return data;
@@ -43,11 +44,19 @@ function ReservationBox({ id, moshaver }) {
     queryKey: ["times"],
     queryFn: fetchData,
   });
+  console.log(data);
 
   const timeHandler = (value) => {
-    setReserveForm({ ...reserveForm, ["time"]: timeEditor(value.time) });
+    console.log(value);
+    setReserveForm({
+      ...reserveForm,
+      ["end_time"]: timeEditor(value.end_time),
+      ["start_time"]: timeEditor(value.start_time),
+    });
 
-    setTimeRange(timeCalculator(value.time));
+    setTimeRange(
+      `${timeEditor(value.start_time)}-${timeEditor(value.end_time)}`
+    );
   };
   const nextHandler = () => {
     if (reserveCardNumb > 2) return;
@@ -67,7 +76,7 @@ function ReservationBox({ id, moshaver }) {
     const day = calenderValue.day;
     const month = calenderValue.month.number;
     const year = calenderValue.year;
-    let date = `${year}/${month}/${day}`;
+    let date = `${year}-${month}-${day}`;
     setReserveForm({ ...reserveForm, ["date"]: date });
   }, [calenderValue]);
   const mutationFn = (data) => api.post("/reservation", data);
@@ -86,8 +95,7 @@ function ReservationBox({ id, moshaver }) {
   useEffect(() => {
     setReserveForm({
       ...reserveForm,
-      moshaver_id: 12,
-      date: "2024-11-26",
+      moshaver_id: moshaver.moshaver_id,
     });
   }, [reserveForm.date]);
   return (
@@ -145,7 +153,7 @@ function ReservationBox({ id, moshaver }) {
                   تاریخ انتخابی:<span>{reserveForm.date}</span>
                 </p>
                 <p>
-                  ساعت انتخابی:<span>{reserveForm.time}</span>
+                  ساعت انتخابی:<span>{reserveForm.start_time}</span>
                 </p>
                 <p>
                   پایه تحصیلی:<span>{reserveForm.level}</span>

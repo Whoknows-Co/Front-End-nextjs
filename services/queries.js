@@ -26,4 +26,5 @@ const useGetConsultantReservedTimes = () => {
   const queryKey = ["consultant-reserved"];
   return useQuery({ queryFn, queryKey });
 };
+
 export { useGetConsultantProfile, useGetConsultantReservedTimes };

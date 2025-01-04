@@ -46,7 +46,7 @@
   flex-direction: column;
 }
 .form div span {
-  color: rgb(116, 8, 8);
+  color: red;
 }
 .form button {
   margin-top: 50px;

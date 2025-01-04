@@ -5,12 +5,12 @@ import styles from "./Consultants.module.css";
 import { useQuery } from "@tanstack/react-query";
 function Consultents() {
   const fetchData = async () => {
-    const res = await fetch("https://mentoroo.liara.run/api/moshavers");
+    const res = await fetch("https://mentoroo.liara.run/api/profilesNew");
     const data = await res.json();
     return data;
   };
   const { isLoading, data } = useQuery({
-    queryKey: ["moshavers"],
+    queryKey: ["profilesNew"],
     queryFn: fetchData,
   });
   console.log(data, isLoading);
@@ -20,8 +20,8 @@ function Consultents() {
     <div className={styles.container}>
       <FilterSidebar>Consultents</FilterSidebar>
       <div className={styles.Cards}>
-        {data.map((moshaver, index) => (
-          <SearchResaultCard key={index} moshaver={moshaver} id={index} />
+        {data.map((moshaver) => (
+          <SearchResaultCard key={moshaver.moshaver_id} moshaver={moshaver} />
         ))}
       </div>
     </div>

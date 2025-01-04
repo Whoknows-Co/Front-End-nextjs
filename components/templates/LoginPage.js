@@ -27,11 +27,11 @@ function LoginPage() {
         console.log(data);
         setCookie("accessToken", data?.data?.access_token, 3600);
         router.push("/profile/consultant");
-        toast.success("وارد شدید!");
+        toast.success("وارد شدید! لطفا اطلاعات خود را تکمیل کنید");
         setLogin(true);
       },
       onError: (error) => {
-        console.log(error);
+        toast.error(error);
       },
     });
   }
@@ -56,7 +56,7 @@ function LoginPage() {
               {...register("login", {
                 required: {
                   value: true,
-                  message: "ایمیل یا شماره تماس را وارد کنید خود را وارد کنید",
+                  message: "ایمیل یا شماره تماس  خود را وارد کنید",
                 },
                 // pattern: {
                 //   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -70,6 +70,7 @@ function LoginPage() {
           <div>
             <label>رمز عبور</label>
             <input
+              type="password"
               {...register("password", {
                 required: { value: true, message: "رمز عبور خود را وارد کنید" },
               })}

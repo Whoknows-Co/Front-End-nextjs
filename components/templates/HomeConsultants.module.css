@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 50px;
+  margin-bottom: 100px;
+}
+.list {
+  padding: 0 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.card {
+  cursor: pointer;
+}
+.list div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  text-align: center;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  width: 200px;
+  background: linear-gradient(
+    90deg,
+    rgba(202, 219, 227, 0.39950980392156865) 0%,
+    rgba(142, 202, 230, 1) 28%
+  );
+}
+.title p {
+  font-size: 22px;
+}

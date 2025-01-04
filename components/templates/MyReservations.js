@@ -3,9 +3,18 @@ import styles from "./MyReservations.module.css";
 import ConsultantReservationsCard from "../module/ConsultantReservationsCard";
 import Image from "next/image";
 import cross from "../../public/reserveCard/cross.svg";
+import { useGetConsultantReservedTimes } from "../../services/queries";
 function MyReservations() {
-  const [modalData, setModalData] = useState({});
-  const [showModal, setShowModal] = useState(true);
+  const [modalData, setModalData] = useState({
+    level: "",
+    subject: "",
+    phone: "",
+  });
+  const [showModal, setShowModal] = useState(false);
+  const { data, isPending } = useGetConsultantReservedTimes();
+  if (isPending) return <p>loading</p>;
+  console.log(data);
+  console.log(data.reservation);
 
   return (
     <div className={styles.container}>
@@ -26,15 +35,21 @@ function MyReservations() {
             <p>شماره تماس:</p>
           </div>
           <div className={styles.answer}>
-            <p>یازدهم</p>
-            <p>ریاضی-فیزیک</p>
+            <p>{modalData.level}</p>
+            <p>{modalData.subject}</p>
             <p>حضوری</p>
-            <p>09179589399</p>
+            <p>{modalData.phone}</p>
           </div>
         </div>
       )}
-      <ConsultantReservationsCard status={false} setModalData={setModalData} />
-      <ConsultantReservationsCard status={true} setModalData={setModalData} />
+      {data.data.reservation.map((reserve) => (
+        <ConsultantReservationsCard
+          reserve={reserve}
+          status={reserve.status}
+          setModalData={setModalData}
+          setShowModal={setShowModal}
+        />
+      ))}
     </div>
   );
 }

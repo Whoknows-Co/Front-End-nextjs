@@ -5,7 +5,12 @@ import calendar from "../../public/reserveCard/calendar.svg";
 
 import clock from "../../public/reserveCard/clock.svg";
 
-function ConsultantReservationsCard({ status }) {
+function ConsultantReservationsCard({
+  reserve,
+  status,
+  setShowModal,
+  setModalData,
+}) {
   return (
     <div className={styles.card}>
       {status === true && (
@@ -16,20 +21,28 @@ function ConsultantReservationsCard({ status }) {
           <div className={styles.fade}></div>
         </>
       )}
-      <p className={styles.name}>پرنیان خالقی</p>
+      <p className={styles.name}>
+        {reserve.student_first_name} {reserve.student_last_name}
+      </p>
       <div className={styles.date}>
         <Image src={calendar} height={30} width={28} alt="icon" />
         <p>دوشنبه</p>
-        <span>1403/3/3 </span>
+        <span>{reserve.date} </span>
       </div>
       <div className={styles.footer}>
         <div>
           <Image src={clock} height={27} width={27} alt="icon" />
-          <p> 00:99-00:66</p>
+          <p> {reserve.time}</p>
         </div>
         <button
           onClick={() => {
             if (status === true) return;
+            setShowModal(true);
+            setModalData({
+              level: reserve.level,
+              subject: reserve.subject,
+              phone: reserve.phone_number,
+            });
           }}
         >
           جزئیات بیشتر

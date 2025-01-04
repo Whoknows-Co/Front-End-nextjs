@@ -7,7 +7,7 @@ import start from "../../public/icons/blueStarRate.svg";
 import Image from "next/image";
 import LocationBox from "../mulecules/LocationBox";
 import { useRouter } from "next/router";
-function SearchResaultCard({ moshaver, id }) {
+function SearchResaultCard({ moshaver }) {
   const router = useRouter();
 
   return (
@@ -16,7 +16,7 @@ function SearchResaultCard({ moshaver, id }) {
         <Image width={100} height={100} src={profileIcon} alt="icon" />
         <div className={styles.title}>
           <h2>
-            {moshaver.moshaver_first_name} {moshaver.moshaver_last_name}
+            {moshaver.first_name} {moshaver.last_name}
           </h2>
           <div className={styles.rate}>
             <Image width={25} height={25} src={start} alt="icon" />{" "}
@@ -32,7 +32,7 @@ function SearchResaultCard({ moshaver, id }) {
       </div>
       <div className={styles.footer}>
         <LocationBox address={moshaver.address} />
-        <button onClick={() => router.push(`/consult/${id}`)}>
+        <button onClick={() => router.push(`/consult/${moshaver.moshaver_id}`)}>
           دریافت نوبت
         </button>
       </div>

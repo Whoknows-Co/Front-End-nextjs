@@ -17,6 +17,7 @@ function Header() {
   useEffect(() => {
     if (data) setLogin(true);
   }, [isPending]);
+
   return (
     <>
       <div

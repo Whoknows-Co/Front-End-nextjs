@@ -13,7 +13,7 @@ function ReservationCard({ executeScroll, moshaver }) {
           <Image className={styles.icon} src={education} alt="" />
           <p>
             نوبت دهی اینترنتی با
-            {`${moshaver.moshaver_first_name} ${moshaver.moshaver_last_name}`}
+            {`${moshaver.first_name} ${moshaver.last_name}`}
           </p>
         </div>
         <span>موسسه ی آموزش های عالی دانشگاه صنعتی شیراز</span>

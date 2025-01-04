@@ -9,12 +9,12 @@ function SearchPage() {
   const slug = router.query.slug["0"];
 
   const fetchData = async () => {
-    const res = await fetch("https://mentoroo.liara.run/api/moshavers");
+    const res = await fetch("https://mentoroo.liara.run/api/profilesNew");
     const data = await res.json();
     return data;
   };
   const { isLoading, data } = useQuery({
-    queryKey: ["moshavers"],
+    queryKey: ["profilesNew"],
     queryFn: fetchData,
   });
   console.log(data, isLoading);
@@ -26,7 +26,12 @@ function SearchPage() {
       <div className={styles.Cards}>
         {data.map((moshaver, index) => {
           if (slug.includes(index))
-            return <SearchResaultCard moshaver={moshaver} id={index} />;
+            return (
+              <SearchResaultCard
+                key={moshaver.moshaver_id}
+                moshaver={moshaver}
+              />
+            );
         })}
       </div>
     </div>

@@ -21,8 +21,8 @@ function ConsultInfoCard({ moshaver }) {
       <div className={styles.header}>
         <Image src={profileIcon} alt="" />
         <div className={styles.details}>
-          <h2>{moshaver.moshaver_first_name || ""}</h2>
-          <h3>{moshaver.moshaver_last_name || ""}</h3>
+          <h2>{moshaver.first_name || ""}</h2>
+          <h3>{moshaver.last_name || ""}</h3>
           <div>
             <Image width={30} height={30} src={Location} alt="" />
             <p>شیراز</p>

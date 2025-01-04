@@ -28,7 +28,7 @@ function RegisterPage() {
         toast.success("ثبت نام موفقیت آمیز بود . لطفا وارد شوید");
       },
       onError: (err) => {
-        console.log(err);
+        toast.error(err.message);
       },
     });
   }

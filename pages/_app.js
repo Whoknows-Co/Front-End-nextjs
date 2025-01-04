@@ -3,6 +3,7 @@ import Footer from "../Layouts/Footer";
 import Header from "../Layouts/Header";
 import "../styles/globals.css";
 import LoginContextProvider from "../context/LoginContextProvider";
+import { ToastContainer } from "react-toastify";
 
 function MyApp({ Component, pageProps }) {
   const queryClient = new QueryClient();
@@ -11,6 +12,7 @@ function MyApp({ Component, pageProps }) {
       <QueryClientProvider client={queryClient}>
         <LoginContextProvider>
           <Header />
+          <ToastContainer position="bottom-right" rtl />
           <Component {...pageProps} />
           <Footer />
         </LoginContextProvider>

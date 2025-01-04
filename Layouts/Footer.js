@@ -25,7 +25,7 @@ function Footer() {
         <div className={styles.contactUs}>
           <h3>با ما در ارتباط باشید</h3>
           <p>mentoro.ac@gmail.com</p>
-          <Image width={100} height={100} src={logo} alt="" />
+          <Image width={100} height={100} src={logo} alt="icon" />
         </div>
         <div>
           <h3>منتورو را در شبکه های اجتماعی دنبال کنید</h3>

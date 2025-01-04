@@ -20,7 +20,7 @@ function ReservationCard({ executeScroll, moshaver }) {
       </div>
       <div className={styles.main}>
         <div>
-          <Image className={styles.icon} src={calender} alt="" />
+          <Image className={styles.icon} src={calender} alt="icon" />
           <p>اولین نوبت آزاد:</p>
         </div>
         <span>07:00-08:00</span>

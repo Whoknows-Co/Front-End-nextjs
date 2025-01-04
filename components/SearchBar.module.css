@@ -32,9 +32,11 @@
   background-color: #e9f2f7;
   font-size: 20px;
   width: 660px;
-
+  font-family: morabba, iran-yekan;
+  font-weight: 900;
   color: rgba(0, 0, 0, 0.41);
 }
+
 .ratings {
   text-align: center;
   padding: 0 70px;

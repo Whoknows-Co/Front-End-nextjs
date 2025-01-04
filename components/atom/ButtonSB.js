@@ -21,7 +21,7 @@ function ButtonSB({ txt, imgUrl, bColor, fn }) {
   };
   return (
     <button style={styles} onClick={fn}>
-      <Image src={imgUrl} alt="" />
+      <Image src={imgUrl} alt="icon" />
       {txt}
     </button>
   );

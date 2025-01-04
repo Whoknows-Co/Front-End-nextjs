@@ -159,7 +159,7 @@ function ReservationBox({ id, moshaver }) {
               </div>
             </div>
             <div className={styles.banner}>
-              <Image src={logo} width={120} height={120} />
+              <Image src={logo} width={120} height={120} alt="icon" />
             </div>
           </>
         ) : (
@@ -207,7 +207,7 @@ function ReservationBox({ id, moshaver }) {
               </div>
             </div>
             <div className={styles.banner}>
-              <Image src={logo} width={120} height={120} />
+              <Image src={logo} width={120} height={120} alt="icon" />
             </div>
           </>
         )}

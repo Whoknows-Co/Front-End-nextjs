@@ -8,6 +8,7 @@ import ReserveManagment from "./ReserveManagment";
 import MyReservations from "./MyReservations";
 function ConsultantProfile() {
   const [selected, setSelected] = useState(1);
+
   const { data, isPending, isLoading } = useGetConsultantProfile();
   console.log(data);
   if (isPending) return <p>loading</p>;

@@ -13,9 +13,9 @@ function BestStudentList({ moshaver }) {
       <div className={styles.list}>
         {students.map((student, index) => (
           <div key={index} className={styles.student}>
-            <Image src={profileIcon} alt="" />
+            <Image src={profileIcon} alt="icon" />
             <div className={styles.rating}>
-              <Image src={star} alt="" />
+              <Image src={star} alt="icon" />
               <h3>رتبه {student.rating}</h3>
             </div>
             <p>{student.name}</p>

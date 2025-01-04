@@ -13,16 +13,16 @@ function SearchResaultCard({ moshaver, id }) {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <Image width={100} height={100} src={profileIcon} />
+        <Image width={100} height={100} src={profileIcon} alt="icon" />
         <div className={styles.title}>
           <h2>
             {moshaver.moshaver_first_name} {moshaver.moshaver_last_name}
           </h2>
           <div className={styles.rate}>
-            <Image width={25} height={25} src={start} />{" "}
-            <Image width={25} height={25} src={start} />{" "}
-            <Image width={25} height={25} src={start} />{" "}
-            <Image width={25} height={25} src={start} />
+            <Image width={25} height={25} src={start} alt="icon" />{" "}
+            <Image width={25} height={25} src={start} alt="icon" />{" "}
+            <Image width={25} height={25} src={start} alt="icon" />{" "}
+            <Image width={25} height={25} src={start} alt="icon" />
           </div>
         </div>
         <p>250 نوبت رایگان</p>

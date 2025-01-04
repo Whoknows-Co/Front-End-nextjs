@@ -87,6 +87,18 @@
 
   font-size: 24px;
 }
+.disable {
+  text-align: center;
+  width: 150px;
+  height: 44px;
+  border-radius: 15px;
+  border: 1px solid;
+  color: black;
+  background-color: #e9f2f7;
+  opacity: 33%;
+  cursor: not-allowed;
+  font-size: 24px;
+}
 .header {
   display: flex;
   gap: 8px;

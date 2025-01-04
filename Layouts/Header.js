@@ -46,20 +46,20 @@ function Header() {
           </div>
           <div>
             <p>مشاوره درسی آنلاین</p>
-            <Image width={25} height={25} src={arrow} alt="" />
+            <Image width={25} height={25} src={arrow} alt="icon" />
           </div>
           <div>
             <p>آموزشگاها</p>
-            <Image width={25} height={25} src={arrow} alt="" />
+            <Image width={25} height={25} src={arrow} alt="icon" />
           </div>
           <div>
             <p>مشاوران</p>
-            <Image width={25} height={25} src={arrow} alt="" />
+            <Image width={25} height={25} src={arrow} alt="icon" />
           </div>
         </div>
 
         <button className={styles.humber} onClick={() => setShowSidebar(true)}>
-          <Image width={60} height={60} src={menu} />
+          <Image width={60} height={60} src={menu} alt="icon" />
         </button>
         <Image
           className={styles.logo2}
@@ -69,8 +69,11 @@ function Header() {
           alt="logo"
         />
         {login === true ? (
-          <button className={styles.login2}>
-            <Image width={50} height={50} src={profileIcon} />
+          <button
+            className={styles.login2}
+            onClick={() => router.push("/profile/consultant")}
+          >
+            <Image width={50} height={50} src={profileIcon} alt="icon" />
           </button>
         ) : (
           <button

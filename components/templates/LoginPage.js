@@ -8,6 +8,7 @@ import { loginContext } from "../../context/LoginContextProvider";
 import Image from "next/image";
 import banner from "../../public/MENTOROOObanner.png";
 import logo from "../../public/register/logo.svg";
+import { toast } from "react-toastify";
 function LoginPage() {
   const submitHandler = (e) => {};
   const {
@@ -26,6 +27,7 @@ function LoginPage() {
         console.log(data);
         setCookie("accessToken", data?.data?.access_token, 3600);
         router.push("/profile/consultant");
+        toast.success("وارد شدید!");
         setLogin(true);
       },
       onError: (error) => {

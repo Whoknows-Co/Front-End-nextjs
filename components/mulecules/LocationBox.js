@@ -17,7 +17,7 @@ function LocationBox({ address }) {
   };
   return (
     <div style={container}>
-      <Image src={Location} width={25} height={25} />
+      <Image src={Location} width={25} height={25} alt="icon" />
       <p style={text}>{address}</p>
     </div>
   );

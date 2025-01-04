@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import api from "../configs/api";
 
 const useRegister = () => {
@@ -20,12 +20,38 @@ const useLogin = () => {
   return useMutation({ mutationFn });
 };
 const useUpdateConsultantProfile = () => {
+  const queryClient = useQueryClient();
   const mutationFn = (data) =>
     api.post("moshaver/complete-profile", data, {
       headers: {
         guard: "moshaver",
       },
     });
+
   return useMutation({ mutationFn });
 };
-export { useRegister, useLogin, useUpdateConsultantProfile };
+const useSetSubmitTime = () => {
+  const mutationFn = (data) =>
+    api.post("moshaver/submitTime", data, {
+      headers: {
+        guard: "moshaver",
+      },
+    });
+  return useMutation({ mutationFn });
+};
+const useViewTimes = () => {
+  const mutationFn = (data) =>
+    api.post("moshaver/viewTimes", data, {
+      headers: {
+        guard: "moshaver",
+      },
+    });
+  return useMutation({ mutationFn });
+};
+export {
+  useRegister,
+  useLogin,
+  useUpdateConsultantProfile,
+  useSetSubmitTime,
+  useViewTimes,
+};

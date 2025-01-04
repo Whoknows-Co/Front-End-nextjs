@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import banner from "../../public/MENTOROOObanner.png";
 import logo from "../../public/register/logo.svg";
 import Image from "next/image";
+import { toast } from "react-toastify";
 
 function RegisterPage() {
   const {
@@ -24,6 +25,7 @@ function RegisterPage() {
       onSuccess: (data) => {
         console.log(data);
         router.push("/auth/login");
+        toast.success("ثبت نام موفقیت آمیز بود . لطفا وارد شوید");
       },
       onError: (err) => {
         console.log(err);

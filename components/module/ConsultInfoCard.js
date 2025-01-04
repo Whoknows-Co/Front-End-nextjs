@@ -53,9 +53,9 @@ function ConsultInfoCard({ moshaver }) {
       <div className={styles.footer}>
         <h3>راه های ارتباطی</h3>
         <div>
-          <Image src={instagram} alt="" />
-          <Image src={linkedin} alt="" />
-          <Image src={phone} alt="" />
+          <Image src={instagram} alt="icon" />
+          <Image src={linkedin} alt="icon" />
+          <Image src={phone} alt="icon" />
         </div>
       </div>
     </div>

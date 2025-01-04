@@ -3,6 +3,36 @@
   font-style: normal;
   src: url("../public/fonts/IRANYEKANREGULAR.TTF");
 }
+@font-face {
+  font-family: "morabba";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../public/fonts/MORABBA-BOLD.TTF");
+}
+@font-face {
+  font-family: "morabba";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../public/fonts/MORABBA-HEAVY.TTF");
+}
+@font-face {
+  font-family: "morabba";
+  font-style: normal;
+  font-weight: 200;
+  src: url("../public/fonts/MORABBA-ULTRALIGHT.TTF");
+}
+@font-face {
+  font-family: "morabba";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../public/fonts/MORABBA-REGULAR.TTF");
+}
+@font-face {
+  font-family: "iranAban";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../public/fonts/IRABAN.TTF");
+}
 :root {
   --primary-color: #208cb0;
   --secondary-color: #f9b025;

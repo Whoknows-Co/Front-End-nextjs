@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useUpdateConsultantProfile } from "../../services/mutations";
 import Image from "next/image";
 import pencil from "../../public/setTimes/pencil.svg";
+import { toast } from "react-toastify";
 
 function EditConsultantProfile({ data, setSelected }) {
   const {
@@ -16,6 +17,7 @@ function EditConsultantProfile({ data, setSelected }) {
     if (isPending) return;
     mutate(data, {
       onSuccess: (data) => {
+        toast.success("اطلاعات شما با موفقیت ثبت شد");
         window.location.reload();
         console.log(data);
       },

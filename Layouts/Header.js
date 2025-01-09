@@ -63,6 +63,7 @@ function Header() {
           <Image width={60} height={60} src={menu} alt="icon" />
         </button>
         <Image
+          onClick={() => router.push("/")}
           className={styles.logo2}
           width={60}
           height={60}

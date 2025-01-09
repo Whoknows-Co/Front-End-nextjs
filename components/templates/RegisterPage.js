@@ -83,7 +83,7 @@ function RegisterPage() {
             {!!errors?.email && <span>{errors?.email?.message}</span>}
           </div>
           <div>
-            <label>مبایل</label>
+            <label>موبایل</label>
             <input
               {...register("phone_number", {
                 required: {

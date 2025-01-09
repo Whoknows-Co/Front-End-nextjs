@@ -77,7 +77,13 @@ function ReserveManagment() {
         );
       },
 
-      onError: (error) => console.log(error),
+      onError: (error) => {
+        if (
+          error.message ===
+          "A similar time range already exists for this consultant on the same day."
+        )
+          toast.error("بازه انتخاب شده قبلا ساخته شده است!");
+      },
     });
   };
   return (

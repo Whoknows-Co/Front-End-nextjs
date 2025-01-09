@@ -37,3 +37,8 @@
 .title p {
   font-size: 22px;
 }
+@media (max-width: 450px) {
+  .list {
+    flex-direction: column;
+  }
+}

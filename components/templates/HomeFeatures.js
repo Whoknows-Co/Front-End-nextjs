@@ -13,19 +13,43 @@ function HomeFeatures() {
   return (
     <div className={styles.container}>
       <div onClick={() => router.push("/consult")} className={styles.click}>
-        <Image src={i1} width={312} height={200} alt="image" />
+        <Image
+          src={i1}
+          width={312}
+          height={200}
+          alt="image"
+          className={styles.image}
+        />
         <p>نوبت دهی مشاوره</p>
       </div>
       <div>
-        <Image src={i2} width={312} height={200} alt="image" />
+        <Image
+          src={i2}
+          width={312}
+          height={200}
+          alt="image"
+          className={styles.image}
+        />
         <p>مشاوره درسی آنلاین (به زودی)</p>
       </div>
       <div onClick={() => router.push("/consult")} className={styles.click}>
-        <Image src={i3} width={312} height={200} alt="image" />
+        <Image
+          src={i3}
+          width={312}
+          height={200}
+          alt="image"
+          className={styles.image}
+        />
         <p>مشاوران</p>
       </div>
       <div>
-        <Image src={i4} width={312} height={200} alt="image" />
+        <Image
+          src={i4}
+          width={312}
+          height={200}
+          alt="image"
+          className={styles.image}
+        />
         <p>آموزشگاها (به زودی)</p>
       </div>
     </div>

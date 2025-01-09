@@ -7,8 +7,10 @@ import { useRouter } from "next/router";
 function SearchPage() {
   const router = useRouter();
 
+  if (!router.query.slug) {
+    return router.push("/");
+  }
   const slug = router.query.slug["0"];
-
   const fetchData = async () => {
     const res = await fetch("https://mentoroo.liara.run/api/profilesNew");
     const data = await res.json();

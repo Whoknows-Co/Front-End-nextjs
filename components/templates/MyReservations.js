@@ -42,8 +42,9 @@ function MyReservations() {
           </div>
         </div>
       )}
-      {data.data.reservation.map((reserve) => (
+      {data.data.reservation.map((reserve, index) => (
         <ConsultantReservationsCard
+          key={index}
           reserve={reserve}
           status={reserve.status}
           setModalData={setModalData}

@@ -19,12 +19,8 @@ const searchResaultCreator = (inputValue, moshavers) => {
   console.log(inputValue);
   const filteredMoshaver = moshavers.filter((moshaver) => {
     if (
-      moshaver.moshaver_first_name
-        .toLowerCase()
-        .includes(inputValue.toLowerCase()) ||
-      moshaver.moshaver_last_name
-        .toLowerCase()
-        .includes(inputValue.toLowerCase()) ||
+      moshaver.first_name.toLowerCase().includes(inputValue.toLowerCase()) ||
+      moshaver.last_name.toLowerCase().includes(inputValue.toLowerCase()) ||
       moshaver.address.toLowerCase().includes(inputValue.toLowerCase())
     )
       return moshaver;
@@ -33,8 +29,7 @@ const searchResaultCreator = (inputValue, moshavers) => {
   let id = "";
   filteredMoshaver.map((element) => {
     moshavers.map((element2, index) => {
-      if (element.moshaver_first_name === element2.moshaver_first_name)
-        id += index;
+      if (element.first_name === element2.first_name) id += index;
     });
   });
   return id;

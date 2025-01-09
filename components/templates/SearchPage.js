@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 function SearchPage() {
   const router = useRouter();
+
   const slug = router.query.slug["0"];
 
   const fetchData = async () => {

@@ -6,24 +6,29 @@ import search from "../public/icons/search.svg";
 import { useRouter } from "next/router";
 import searchResaultCreator from "../utils/searchResaultCreator";
 import { useQuery } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 function SearchBar() {
   const [searchValue, setSearchValue] = useState("");
   const [filterResault, setFilterResault] = useState("");
   const router = useRouter();
   console.log(searchValue);
   const fetchData = async () => {
-    const res = await fetch("https://mentoroo.liara.run/api/moshavers");
+    const res = await fetch("https://mentoroo.liara.run/api/profilesNew");
     const data = await res.json();
     return data;
   };
   const { data } = useQuery({
-    queryKey: ["moshavers"],
+    queryKey: ["profilesNew"],
     queryFn: fetchData,
   });
   const searchFilter = () => {
     console.log(data);
     console.log(searchValue);
     const resault = searchResaultCreator(searchValue, data);
+    if (!resault) {
+      toast.error("نتیجه ای یافت نشد");
+      return;
+    }
     console.log(resault);
     router.push(`search/${resault}`);
   };

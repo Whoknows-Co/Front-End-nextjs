@@ -33,7 +33,7 @@ function ConsultInfoCard({ moshaver }) {
           </div>
           <div>
             <Image width={30} height={30} src={email} alt="" />
-            <p>ParnianKhaleghi94@gmail.com</p>
+            <p>{moshaver.email}</p>
           </div>
         </div>
       </div>

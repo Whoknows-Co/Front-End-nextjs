@@ -7,10 +7,6 @@ import { useRouter } from "next/router";
 function SearchPage() {
   const router = useRouter();
 
-  if (!router.query.slug) {
-    return router.push("/");
-  }
-  const slug = router.query.slug["0"];
   const fetchData = async () => {
     const res = await fetch("https://mentoroo.liara.run/api/profilesNew");
     const data = await res.json();
@@ -20,6 +16,13 @@ function SearchPage() {
     queryKey: ["profilesNew"],
     queryFn: fetchData,
   });
+  const slug = router.query.slug && router.query.slug[0];
+  if (!slug) {
+    if (typeof window !== "undefined") {
+      router.push("/");
+    }
+    return null; // برای جلوگیری از رندر در سمت سرور
+  }
   console.log(data, isLoading);
   if (isLoading) return "loading";
   if (!data) return "Something Went Wrong";

@@ -37,6 +37,13 @@
 .title p {
   font-size: 22px;
 }
+.loader {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 @media (max-width: 450px) {
   .list {
     flex-direction: column;

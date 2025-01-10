@@ -8,6 +8,7 @@ import ReservationBox from "./ReservationBox";
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
 import findConsult from "../../utils/findConsult";
+import { ColorRing } from "react-loader-spinner";
 
 function ConsultDetails() {
   const myRef = useRef(null);
@@ -28,7 +29,24 @@ function ConsultDetails() {
   });
   console.log(data);
   console.log(isPending);
-  if (isPending) return "loading";
+  if (isPending)
+    return (
+      <div className={styles.loader}>
+        <ColorRing
+          visible={true}
+          height="180"
+          width="180"
+          colors={[
+            "#208cb0",
+            "#f9b025",
+            "#ed6624",
+            "#208cb0",
+            "#f9b025",
+            "#ed6624",
+          ]}
+        />
+      </div>
+    );
 
   return (
     <div className={styles.container}>

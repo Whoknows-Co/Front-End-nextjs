@@ -4,6 +4,7 @@ import ConsultantReservationsCard from "../module/ConsultantReservationsCard";
 import Image from "next/image";
 import cross from "../../public/reserveCard/cross.svg";
 import { useGetConsultantReservedTimes } from "../../services/queries";
+import { ColorRing } from "react-loader-spinner";
 function MyReservations() {
   const [modalData, setModalData] = useState({
     level: "",
@@ -12,7 +13,24 @@ function MyReservations() {
   });
   const [showModal, setShowModal] = useState(false);
   const { data, isPending } = useGetConsultantReservedTimes();
-  if (isPending) return <p>loading</p>;
+  if (isPending)
+    return (
+      <div className={styles.loader}>
+        <ColorRing
+          visible={true}
+          height="180"
+          width="180"
+          colors={[
+            "#208cb0",
+            "#f9b025",
+            "#ed6624",
+            "#208cb0",
+            "#f9b025",
+            "#ed6624",
+          ]}
+        />
+      </div>
+    );
   console.log(data);
   console.log(data.reservation);
 

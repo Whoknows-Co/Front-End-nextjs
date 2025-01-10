@@ -14,6 +14,8 @@ import logo from "../../public/logo.svg";
 import Modal_Submit from "../module/Modal_Submit";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import timeEditor from "../../utils/timeEditor";
+import { toast } from "react-toastify";
+import { ColorRing } from "react-loader-spinner";
 
 function ReservationBox({ moshaver }) {
   const [calenderValue, setCalenderValue] = useState(null);
@@ -43,7 +45,7 @@ function ReservationBox({ moshaver }) {
     const data = await res.json();
     return data;
   };
-  const { data, isLoading, refetch } = useQuery({
+  const { data, isPending, refetch } = useQuery({
     queryKey: ["times"],
     queryFn: fetchData,
   });
@@ -93,7 +95,10 @@ function ReservationBox({ moshaver }) {
         setShowModal(true);
         console.log(response);
       },
-      onError: (error) => console.log(error),
+      onError: (error) => {
+        if (error.message === "The date birth field must be a valid date.")
+          toast.error("valid birthday format: 2000/09/09");
+      },
     });
   };
 
@@ -112,13 +117,25 @@ function ReservationBox({ moshaver }) {
               {timeRange === "" ? null : (
                 <h3> بازه زمانی انتخابی شما : {timeRange}</h3>
               )}
-              <div className={styles.list}>
+              <div className={isPending ? styles.loader : styles.list}>
                 {reserveForm.date === "" ? (
-                  <p className={styles.pickDate}>
-                    تاریخ مورد نظر خود را انتخاب کنید
-                  </p>
-                ) : isLoading ? (
-                  "Loading"
+                  <p>تاریخ مورد نظر خود را انتخاب کنید</p>
+                ) : isPending ? (
+                  <div className={styles.loader}>
+                    <ColorRing
+                      visible={true}
+                      height="120"
+                      width="120"
+                      colors={[
+                        "#208cb0",
+                        "#f9b025",
+                        "#ed6624",
+                        "#208cb0",
+                        "#f9b025",
+                        "#ed6624",
+                      ]}
+                    />
+                  </div>
                 ) : data?.slots ? (
                   data?.slots.map((time, index) => (
                     <TimeBox
@@ -177,7 +194,7 @@ function ReservationBox({ moshaver }) {
                 <h2>
                   مشاور:
                   <span>
-                    {moshaver.moshaver_first_name} {moshaver.moshaver_last_name}
+                    {moshaver.first_name} {moshaver.last_name}
                   </span>
                 </h2>
               </div>

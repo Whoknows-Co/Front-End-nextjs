@@ -31,7 +31,7 @@ function LoginPage() {
         setLogin(true);
       },
       onError: (error) => {
-        toast.error(error);
+        toast.error("رمز عبور ,ایمیل و یا شماره همراه نادرست است!");
       },
     });
   }

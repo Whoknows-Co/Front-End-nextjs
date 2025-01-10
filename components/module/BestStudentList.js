@@ -11,7 +11,9 @@ function BestStudentList({ moshaver }) {
     <div className={styles.container}>
       <h1>رتبه های برتر تحت مشاوره</h1>
       {students.length === 0 ? (
-        <h2 className={styles.notFound}>مشاور هنوز رتبه برتری ثبت نکرده است</h2>
+        <div className={styles.notFound}>
+          <h2>مشاور هنوز رتبه برتری ثبت نکرده است</h2>
+        </div>
       ) : (
         <div className={styles.list}>
           {students.map((student, index) => (

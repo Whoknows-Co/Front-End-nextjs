@@ -27,7 +27,9 @@ function Header() {
         <a className={styles.closebtn} onClick={() => setShowSidebar(false)}>
           &times;
         </a>
-        <a onClick={() => router.push("/consult")}>نوبت دهی مشاوره</a>
+        <a onClick={() => router.push("/consult")} className={styles.enable}>
+          نوبت دهی مشاوره
+        </a>
         <a>مشاوره درسی آنلاین</a>
         <a>آموزشگاها</a>
         <a>مشاوران</a>

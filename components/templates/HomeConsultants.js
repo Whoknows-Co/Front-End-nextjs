@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import profileIcon from "../../public/icons/profile-icon.svg";
 import { useRouter } from "next/navigation";
+import { ColorRing } from "react-loader-spinner";
 function HomeConsultants() {
   const router = useRouter();
   const fetchData = async () => {
@@ -16,7 +17,24 @@ function HomeConsultants() {
     queryFn: fetchData,
   });
   console.log(data);
-  if (isPending) return "loading";
+  if (isPending)
+    return (
+      <div className={styles.loader}>
+        <ColorRing
+          visible={true}
+          height="180"
+          width="180"
+          colors={[
+            "#208cb0",
+            "#f9b025",
+            "#ed6624",
+            "#208cb0",
+            "#f9b025",
+            "#ed6624",
+          ]}
+        />
+      </div>
+    );
   if (!data) return "Somthing Went Wrong";
   return (
     <div className={styles.container}>

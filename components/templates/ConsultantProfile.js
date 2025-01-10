@@ -6,12 +6,30 @@ import { useGetConsultantProfile } from "../../services/queries";
 import EditConsultantProfile from "./EditConsultantProfile";
 import ReserveManagment from "./ReserveManagment";
 import MyReservations from "./MyReservations";
+import { ColorRing } from "react-loader-spinner";
 function ConsultantProfile() {
   const [selected, setSelected] = useState(1);
 
-  const { data, isPending, isLoading } = useGetConsultantProfile();
+  const { data, isPending } = useGetConsultantProfile();
   console.log(data);
-  if (isPending) return <p>loading</p>;
+  if (isPending)
+    return (
+      <div className={styles.loader}>
+        <ColorRing
+          visible={true}
+          height="180"
+          width="180"
+          colors={[
+            "#208cb0",
+            "#f9b025",
+            "#ed6624",
+            "#208cb0",
+            "#f9b025",
+            "#ed6624",
+          ]}
+        />
+      </div>
+    );
 
   return (
     <div className={styles.container}>

@@ -4,6 +4,7 @@ import SearchResaultCard from "../module/SearchResaultCard";
 import styles from "./SearchPage.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
+import { ColorRing } from "react-loader-spinner";
 function SearchPage() {
   const router = useRouter();
 
@@ -24,7 +25,24 @@ function SearchPage() {
     return null; // برای جلوگیری از رندر در سمت سرور
   }
   console.log(data, isLoading);
-  if (isLoading) return "loading";
+  if (isLoading)
+    return (
+      <div className={styles.loader}>
+        <ColorRing
+          visible={true}
+          height="180"
+          width="180"
+          colors={[
+            "#208cb0",
+            "#f9b025",
+            "#ed6624",
+            "#208cb0",
+            "#f9b025",
+            "#ed6624",
+          ]}
+        />
+      </div>
+    );
   if (!data) return "Something Went Wrong";
   return (
     <div className={styles.container}>

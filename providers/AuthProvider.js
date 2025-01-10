@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 function AuthProvider({ children }) {
   const router = useRouter();
   const { data, isPending } = useGetConsultantProfile();
+
   useEffect(() => {
     if (!isPending && !data?.data) {
       router.push("/");

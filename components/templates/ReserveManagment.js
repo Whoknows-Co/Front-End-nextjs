@@ -94,13 +94,16 @@ function ReserveManagment() {
           <p>روز های مورد نظر خود را انتخاب کنید:</p>
         </div>
         <div className={styles.formContainer}>
-          <Calendar
-            name="date"
-            value={timeForm.date}
-            calendar={persian}
-            locale={persian_fa}
-            onChange={setCalenderValue}
-          />
+          <div className={styles.calendar}>
+            <Calendar
+              name="date"
+              value={timeForm.date}
+              calendar={persian}
+              locale={persian_fa}
+              onChange={setCalenderValue}
+            />
+            <p>بر روی هر تاریخ دو بار کلیک کنید</p>
+          </div>
           <div className={styles.setTimes}>
             <div>
               <label>شروع ساعت کاری:</label>
@@ -119,7 +122,7 @@ function ReserveManagment() {
               />
             </div>
             <div>
-              <label>مدت زمان مشاوره:</label>
+              <label>مدت زمان مشاوره(دقیقه):</label>
               <input
                 type="number"
                 onChange={changeHandler}

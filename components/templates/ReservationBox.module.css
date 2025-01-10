@@ -6,7 +6,9 @@
   position: relative;
   background-color: var(--white-color);
 }
-
+.pickDate {
+  position: absolute;
+}
 .timeList {
   display: flex;
   justify-content: center;
@@ -29,6 +31,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .form {
   width: 70%;
@@ -107,6 +110,12 @@
 }
 .log p {
   font-size: 24px;
+}
+.notFound {
+  position: absolute;
+  right: 100px;
+  top: 200px;
+  font-size: 20px;
 }
 @media (max-width: 850px) {
   .container {

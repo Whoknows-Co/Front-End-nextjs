@@ -17,7 +17,7 @@ function RegisterPage() {
   } = useForm();
   const { mutate, isPending } = useRegister();
   const router = useRouter();
-  console.log(router);
+
   function onSubmit(values) {
     if (isPending) return;
 
@@ -27,8 +27,29 @@ function RegisterPage() {
         router.push("/auth/login");
         toast.success("ثبت نام موفقیت آمیز بود . لطفا وارد شوید");
       },
-      onError: (err) => {
-        toast.error(err.message);
+      onError: (error) => {
+        if (error.error === "The phone number has already been taken") {
+          toast.error("شماره موبایل وارد شده قبلا استفاده شده است!");
+        } else if (error.error === "The email has already been taken") {
+          toast.error("ایمیل وارد شده قبلا استفاده شده است!");
+        } else if (error.error === "The email has already been taken") {
+          toast.error("ایمیل وارد شده قبلا استفاده شده است!");
+        } else if (
+          error.error ===
+          "The password must contain at least one lowercase letter."
+        ) {
+          toast.error("رمز عبور باید شامل حروف کوچک باشد!");
+        } else if (
+          error.error ===
+          "The password must contain at least one uppercase letter."
+        ) {
+          toast.error("رمز عبور باید شامل حروف بزرگ باشد!");
+        } else if (
+          error.error === "The password must be at least 8 characters long."
+        ) {
+          toast.error("رمز عبور باید حداقل شامل 8 کارکتر باشد!");
+        }
+        console.log(error);
       },
     });
   }
@@ -44,10 +65,7 @@ function RegisterPage() {
           <Image src={logo} width={82.5} height={110} alt="logo" />
           <h1>به منتورو خوش آمدید</h1>
         </div>
-        <form
-          className={styles.form}
-          onSubmit={handleSubmit(onSubmit, onError)}
-        >
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label>نام</label>
             <input
@@ -90,8 +108,6 @@ function RegisterPage() {
                   value: true,
                   message: "شماره تماس خود را وارد کنید",
                 },
-                minLength: { value: 11, message: "شماره تماس نا معتبر است" },
-                maxLength: { value: 11, message: "شماره تماس نا معتبر است" },
               })}
             />
             {!!errors?.phone && <span>{errors?.phone?.message}</span>}

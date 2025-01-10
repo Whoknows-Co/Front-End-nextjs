@@ -28,6 +28,7 @@ function HomeConsultants() {
           if (index <= 4)
             return (
               <div
+                key={moshaver.moshaver_id}
                 className={styles.card}
                 onClick={() => router.push(`/consult/${moshaver.moshaver_id}`)}
               >

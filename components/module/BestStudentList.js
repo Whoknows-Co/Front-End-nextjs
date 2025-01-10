@@ -10,19 +10,23 @@ function BestStudentList({ moshaver }) {
   return (
     <div className={styles.container}>
       <h1>رتبه های برتر تحت مشاوره</h1>
-      <div className={styles.list}>
-        {students.map((student, index) => (
-          <div key={index} className={styles.student}>
-            <Image src={profileIcon} alt="icon" />
-            <div className={styles.rating}>
-              <Image src={star} alt="icon" />
-              <h3>رتبه {student.rating}</h3>
+      {students.length === 0 ? (
+        <h2 className={styles.notFound}>مشاور هنوز رتبه برتری ثبت نکرده است</h2>
+      ) : (
+        <div className={styles.list}>
+          {students.map((student, index) => (
+            <div key={index} className={styles.student}>
+              <Image src={profileIcon} alt="icon" />
+              <div className={styles.rating}>
+                <Image src={star} alt="icon" />
+                <h3>رتبه {student.rating}</h3>
+              </div>
+              <p>{student.name}</p>
+              <p>{student.konkur}</p>
             </div>
-            <p>{student.name}</p>
-            <p>{student.konkur}</p>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

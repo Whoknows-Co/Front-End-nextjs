@@ -14,6 +14,7 @@ import logo from "../../public/logo.svg";
 import Modal_Submit from "../module/Modal_Submit";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import timeEditor from "../../utils/timeEditor";
+
 function ReservationBox({ moshaver }) {
   const [calenderValue, setCalenderValue] = useState(null);
   const [timeValue, setTimeValue] = useState("");
@@ -31,16 +32,18 @@ function ReservationBox({ moshaver }) {
     date: "",
     end_time: "",
     start_time: "",
+    time: "",
   });
+
   console.log(reserveForm);
   const fetchData = async () => {
     const res = await fetch(
-      `https://mentoroo.liara.run/api/reservation/slots/14/2025-07-08`
+      `https://mentoroo.liara.run/api/reservation/slots/${reserveForm.moshaver_id}/${reserveForm.date}`
     );
     const data = await res.json();
     return data;
   };
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, refetch } = useQuery({
     queryKey: ["times"],
     queryFn: fetchData,
   });
@@ -52,6 +55,7 @@ function ReservationBox({ moshaver }) {
       ...reserveForm,
       ["end_time"]: timeEditor(value.end_time),
       ["start_time"]: timeEditor(value.start_time),
+      ["time"]: timeEditor(value.start_time),
     });
 
     setTimeRange(
@@ -78,6 +82,7 @@ function ReservationBox({ moshaver }) {
     const year = calenderValue.year;
     let date = `${year}-${month}-${day}`;
     setReserveForm({ ...reserveForm, ["date"]: date });
+    refetch();
   }, [calenderValue]);
   const mutationFn = (data) => api.post("/reservation", data);
 
@@ -88,7 +93,7 @@ function ReservationBox({ moshaver }) {
         setShowModal(true);
         console.log(response);
       },
-      onError: (error) => alert(error.response.data.message),
+      onError: (error) => console.log(error),
     });
   };
 
@@ -108,15 +113,25 @@ function ReservationBox({ moshaver }) {
                 <h3> بازه زمانی انتخابی شما : {timeRange}</h3>
               )}
               <div className={styles.list}>
-                {isLoading
-                  ? "Loading"
-                  : data.slots.map((time, index) => (
-                      <TimeBox
-                        key={index}
-                        time={time}
-                        timeHandler={timeHandler}
-                      />
-                    ))}
+                {reserveForm.date === "" ? (
+                  <p className={styles.pickDate}>
+                    تاریخ مورد نظر خود را انتخاب کنید
+                  </p>
+                ) : isLoading ? (
+                  "Loading"
+                ) : data?.slots ? (
+                  data?.slots.map((time, index) => (
+                    <TimeBox
+                      key={index}
+                      time={time}
+                      timeHandler={timeHandler}
+                    />
+                  ))
+                ) : (
+                  <p className={styles.notFound}>
+                    برای این تاریخ نوبتی تنظیم نشده است
+                  </p>
+                )}
               </div>
             </div>
             <div className={styles.calendar}>
@@ -127,6 +142,7 @@ function ReservationBox({ moshaver }) {
                 locale={persian_fa}
                 onChange={setCalenderValue}
               />
+              <p>لطفا بر روی هر تاریخ دو بار کلیک کنید</p>
             </div>
           </>
         ) : reserveCardNumb === 2 ? (

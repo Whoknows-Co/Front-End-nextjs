@@ -40,6 +40,12 @@
 .student p {
   margin-bottom: 5px;
 }
+.notFound {
+  opacity: 0.5;
+  position: absolute;
+  top: 300px;
+  right: 500px;
+}
 @media (max-width: 1260px) {
   .container {
     /* width: 330px; */
